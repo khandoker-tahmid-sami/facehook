@@ -1,4 +1,4 @@
-import React, { type ReactElement } from "react";
+import React, { type ReactElement, type ReactNode } from "react";
 import type { FieldError } from "react-hook-form";
 
 type FieldProps = {
@@ -23,7 +23,7 @@ export const Field = ({ label, children, htmlFor, error }: FieldProps) => {
   );
 };
 
-const getChildId = (children) => {
+const getChildId = (children: ReactElement) => {
   const child = React.Children.only(children);
 
   if ("id" in child?.props) {

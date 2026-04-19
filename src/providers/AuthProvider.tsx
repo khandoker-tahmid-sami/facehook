@@ -14,7 +14,7 @@ const AuthProvider = ({ children }: { children: React.ReactNode }) => {
 
 
   //custom handle set function and saving auth details in localstorage
-  const handleSetAuth = (authData) =>{
+  const handleSetAuth = (authData: AuthContextType | null) =>{
     if(authData){
       localStorage.setItem("auth", JSON.stringify(authData))
     }else(

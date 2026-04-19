@@ -14,5 +14,7 @@ type AuthContextType = {
 };
 const AuthContext = createContext<AuthContextType | null>(null);
 
-export { AuthContext };
+const ProfileContext = createContext(null)
+
+export { AuthContext, ProfileContext };
 export type { AuthContextType };

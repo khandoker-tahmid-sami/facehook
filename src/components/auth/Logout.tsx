@@ -7,7 +7,7 @@ export const Logout = () => {
   const navigate = useNavigate();
 
   const handleLogout = () => {
-    setAuth({});
+    setAuth(null);
     navigate("/login");
   };
   return (

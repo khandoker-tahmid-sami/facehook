@@ -1,0 +1,541 @@
+** Oauth based login
+** JWT based login (access token, refresh token)
+
+
+**************Protected route/private route && Header component that is common in many pages********************
+
+
+When we can start protected route? = when we have auth data saved in our memory(state) we can start implementing 
+protected route. Then we have to change in routing using protected route.
+
+1. create a PrivateRoute component
+
+import { Navigate, Outlet } from "react-router-dom";
+import { Header } from "../components/common/Header";
+import { useAuth } from "../hooks/useAuth";
+
+export const PrivateRoutes = () => {
+  const { auth } = useAuth();
+  return (
+    <>
+      {auth?.user ? (
+        <>
+          <Header />
+          <main className="mx-auto max-w-[1020px] py-8">
+            <div className="container">
+              <Outlet />
+            </div>
+          </main>
+        </>
+      ) : (
+        <Navigate to={"/login"} />
+      )}
+    </>
+  );
+};
+
+
+** Here better to use auth.authToken to check a user has loggin or not instead of checking auth?.authToken
+** And all other providers should wrap this privateRoutes. 
+
+
+
+When you are done with protected routes change in the routes in main.tsx file:
+const router = createBrowserRouter([
+  {
+    element: <PrivateRoutes />,
+    errorElement: <ErrorPage />,
+    children: [
+      {
+        path: "/",
+        element: <HomePage />,
+      },
+      {
+        path: "/me",
+        element: <ProfilePage />,
+      },
+    ],
+  },
+
+  {
+    path: "/login",
+    element: <LoginPage />,
+  },
+  {
+    path: "/registration",
+    element: <RegistrationPage />,
+  },
+]);
+
+
+
+
+******************************* Log out **************************************
+Remind that to make a logout component because we need to acctually logout from the application. 
+
+import { useNavigate } from "react-router-dom";
+import LogoutIcon from "../../assets/icons/logout.svg";
+import { useAuth } from "../../hooks/useAuth";
+
+export const Logout = () => {
+  const { setAuth } = useAuth();
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    setAuth({});
+    navigate("/login");
+  };
+  return (
+    <button onClick={handleLogout} className="icon-btn cursor-pointer">
+      <img src={LogoutIcon} alt="Logout" />
+    </button>
+  );
+};
+
+
+
+
+
+
+
+
+
+
+
+****************Rules to save access token, refreshtoken, and auth details***************************
+
+The Options
+1. localStorage — Most Common but Risky
+
+localStorage.setItem("accessToken", token);
+localStorage.getItem("accessToken");
+Persists even after browser closes
+Vulnerable to XSS attacks — if any malicious script runs on your page, it can steal the token
+
+2. sessionStorage — Slightly Safer
+
+sessionStorage.setItem("accessToken", token);
+Cleared when the tab closes
+Still vulnerable to XSS — same problem as localStorage
+
+3. HttpOnly Cookie — Most Secure
+
+Set-Cookie: accessToken=xyz; HttpOnly; Secure; SameSite=Strict
+Set by the server, not JavaScript
+JavaScript cannot read it at all — XSS attacks can't steal it
+This is the recommended approach for production apps
+
+4. Memory (React state / Zustand / Redux)
+
+const [accessToken, setAccessToken] = useState(null);
+Safest from XSS — never touches the browser storage
+Lost on page refresh — user has to login again
+The Best Practice (Industry Standard)
+Token	Where to store
+Access Token	Memory (React state / Zustand)
+Refresh Token	HttpOnly Cookie (set by server)
+Why this combination?
+
+Access token lives in memory — XSS can't steal it, but it's lost on refresh (that's okay)
+Refresh token is in HttpOnly cookie — only the server can read it, used to get a new access token silently when page reloads
+For Your Project (Practical Advice)
+Since you are learning/building, using localStorage is fine for now — but know it's not production-safe. When you are ready to make it production-ready, switch to the Memory + HttpOnly Cookie approach.
+
+
+// For now — simple and works for learning
+localStorage.setItem("accessToken", token);
+
+// Later — proper way
+// Server sets HttpOnly cookie for refresh token
+// You store access token in Zustand/Redux store
+Simple Rule to Remember
+Never store sensitive tokens where JavaScript can read them in production. HttpOnly cookies are invisible to JavaScript — that's exactly what makes them safe.
+
+
+
+************************Way to save auth details in Memory**********************************
+
+1. Create context first
+2. Then create providers
+3. then create hooks
+
+
+
+Yes, this file needs TypeScript — and right now it's incomplete. createContext() is called with no value and no type, which will cause a TypeScript error.
+
+What's wrong right now?
+
+const AuthContext = createContext(); // ❌ TypeScript doesn't know what this context holds
+TypeScript is asking: "What kind of data will this context provide?"
+
+How to fix it — step by step
+Step 1 — Define a type for your auth data:
+
+
+type AuthContextType = {
+  user: {
+    name: string;
+    email: string;
+  } | null;
+  accessToken: string | null;
+};
+Step 2 — Pass the type and a default value to createContext:
+
+
+const AuthContext = createContext<AuthContextType | null>(null);
+The null default means: "No user is logged in by default."
+
+Full updated file:
+
+import { createContext } from "react";
+
+type AuthContextType = {
+  user: {
+    name: string;
+    email: string;
+  } | null;
+  accessToken: string | null;
+};
+
+const AuthContext = createContext<AuthContextType | null>(null);
+
+export { AuthContext };
+export type { AuthContextType }; // export the type too — useful in other files
+Why is the type important here?
+When you consume this context anywhere in your app:
+
+
+const auth = useContext(AuthContext);
+
+auth.user.name   // ✅ TypeScript knows this exists
+auth.token       // ❌ TypeScript error — "token" doesn't exist, it's "accessToken"
+TypeScript protects you from accessing wrong properties on the auth data throughout your entire app — not just in one file.
+
+Summary
+Current code	Should be
+createContext()	No type, no default	createContext<AuthContextType | null>(null)
+Safety	TypeScript is blind	TypeScript protects all consumers
+The type you define here acts as a contract for your entire authentication system.
+
+
+
+
+*****************************Reason to use useDebugValue in useAuth file***********************************
+
+What is useDebugValue?
+It is a React hook only for developer tools. It has zero effect on your actual app — users never see it.
+
+It adds a readable label to your custom hook inside React DevTools browser extension.
+
+Without useDebugValue
+In React DevTools you see:
+
+
+useAuth
+  (no useful info)
+With useDebugValue
+
+useAuth: "User logged in"   ← you can see auth state instantly
+The second argument is a performance optimization
+
+useDebugValue(auth, (auth) => auth?.user ? "User logged in" : "User logged out")
+//                  ↑
+//            this function only runs when DevTools is open
+If you wrote it like this instead:
+
+
+useDebugValue(auth?.user ? "User logged in" : "User logged out") // ❌ runs always
+That calculation runs every render, even when DevTools is closed. The second argument (formatter function) makes it lazy — only runs when a developer actually has DevTools open.
+
+Simple Rule
+useDebugValue
+Who sees it	Only developers with React DevTools
+Affects app?	Never
+When to use	In custom hooks to show useful state at a glance
+Second argument	A formatter function — runs lazily only when DevTools is open
+Think of it as a sticky note for developers — it helps you debug faster but means nothing to the real app.
+
+
+
+
+*******************************JWT*******************************************
+
+1. First install axios
+
+
+2. We need to extend axios to make the user logged in thoughout the website. To update the auth token using calling
+the refresh token api we need to extend axios. Axios provides interceptor feature. When can intercept in request and response time. 
+
+
+
+Server will always check - does request header have auth token or not. 
+
+This is the extension of axios with interceptor:
+
+import axios from "axios";
+import { api } from "../api";
+import { useEffect } from "react";
+import { useAuth } from "./useAuth";
+
+
+export const useAxios = () =>{
+
+    const {auth, setAuth} = useAuth()
+    useEffect(() =>{
+
+        //add a request incepter
+       const requestIntercept =  api.interceptors.request.use(
+            (config) =>{
+                const authToken = auth?.authToken;
+
+                if(authToken) {
+                    config.headers.Authorization = `Bearer ${authToken}`
+                }
+
+                return config;
+            },
+            (error) => Promise.reject(error)
+        )
+
+
+        //add a response interceptop
+        const responseIntercept = api.interceptors.response.use(
+            (response) => response,
+            async (error) => {
+                const originalRequest = error.config;
+
+                console.log(`OriginalRequest: ${originalRequest}`)
+                if(error.response?.status === 401 && !originalRequest._retry){
+                    originalRequest._retry = true
+
+                    const refreshToken = auth?.refreshToken
+                    const response = await axios.post(`${import.meta.env.VITE_SERVER_BASE_URL}/auth/refresh-token`, {refreshToken})
+                        .catch(() => {
+                            setAuth(null)
+                            return Promise.reject(error)
+                        })
+
+                    const {token, refreshToken: newRefreshToken} = response.data
+
+                    setAuth({...auth, authToken: token, refreshToken: newRefreshToken})
+                    originalRequest.headers.Authorization = `Bearer ${token}`
+
+                    return api(originalRequest)
+                }
+            }
+        )
+
+        return () =>{
+            api.interceptors.request.eject(requestIntercept);
+            api.interceptors.response.eject(responseIntercept);
+        }
+
+    },[auth, setAuth])
+
+    return {api}
+}
+
+
+
+*************************When I reload the page why its logged out********************************
+
+
+const [auth, setAuth] = useState<AuthContextType | null>(null)
+useState stores data only in memory (RAM). When you reload the page:
+
+The browser clears all JavaScript memory
+React starts fresh — auth goes back to null
+Your tokens are gone — user appears logged out
+The tokens were never saved anywhere persistent.
+
+
+
+
+*********************Lazy initiator function *************************************
+
+A lazy initializer function in React is a performance optimization technique used within the useState (and useReducer) hook to defer expensive, one-time computations until the component's initial render. Instead of passing a direct value, you pass a function that returns the initial value. React executes this function only once, when the component mounts, and ignores it during subsequent re-renders.
+
+
+***********************Better to initialize auth in providers with null*************************
+
+  //lazy initiator function
+  const [auth, setAuth] = useState<AuthContextType | null>(() => {
+    const saved = localStorage.getItem("auth")
+    return saved ? JSON.parse(saved) : null
+  });
+
+
+  then when logout you can use setAuth(null)
+
+  then localstorage can be fully vanished when logout.
+
+
+
+
+  ***************************Think about data model********************
+
+  Always remind about data model. 
+
+  When using auth data use it for only authentication. Do not use it for othercase such as profile, even you get some data for profile.
+
+  For profile data: define profile context and share throughout the application. reducer is a good way to have all the action in one file. and then pass this in context. then we can use this actions and data throughout the application. reducer helps to limit the state in component.
+
+
+  Profile action => profile reducers => profile context => profile providers => profile hooks
+
+
+
+
+
+
+  ******************Fix I should do related to type for profile data****************************
+Part 2 — TypeScript steps for profile files
+Step 1 — context/index.ts:17 — ProfileContext has no type
+
+
+const ProfileContext = createContext(null);  // ❌ TypeScript is blind
+First define the type, then use it:
+
+
+type ProfileStateType = {
+  user: AuthContextType["user"];
+  posts: unknown[];
+  loading: boolean;
+  error: string | null;
+};
+
+type ProfileContextType = {
+  state: ProfileStateType;
+  dispatch: React.Dispatch<ProfileActionType>;  // you'll define this in Step 2
+};
+
+const ProfileContext = createContext<ProfileContextType | null>(null);
+Step 2 — ProfileReducer.ts — state and action have no types
+
+
+const profileReducer = (state, action) => {  // ❌ both untyped
+Define an action type and use it:
+
+
+type ProfileActionType =
+  | { type: "PROFILE_DATA_FETCHING" }
+  | { type: "PROFILE_DATA_FETCHED"; data: { user: AuthContextType["user"]; posts: unknown[] } }
+  | { type: "PROFILE_DATA_FETCH_ERROR"; error: string };
+
+const initialState: ProfileStateType = { ... };
+
+const profileReducer = (state: ProfileStateType, action: ProfileActionType): ProfileStateType => {
+Step 3 — ProfileProvider.tsx:10 — bug: comma operator instead of object
+
+
+<ProfileContext.Provider value={state, dispatch}>  // ❌ same bug as AuthProvider had before
+Fix:
+
+
+<ProfileContext.Provider value={{ state, dispatch }}>  // ✅ double braces
+Step 4 — ProfileReducer.ts:4-9 — initialState has no type
+
+
+const initialState = {  // ❌ TypeScript infers loosely
+Fix:
+
+
+const initialState: ProfileStateType = {
+  user: null,
+  posts: [],
+  loading: false,
+  error: null,
+};
+
+
+****************************Fix I should do managinf state and data ************************************
+
+Which should you use?
+Situation Best choice
+Learning / simple project useState or useReducer
+Medium app, avoid Redux Zustand
+Data comes from an API  TanStack Query
+Complex global state  Zustand + TanStack Query together
+My recommendation for your project
+Since your profile data comes from an API, TanStack Query is the ideal fit — it replaces your entire useReducer + loading/error state with just one useQuery call. But since you are learning, finishing with useReducer first is fine — then refactor to TanStack Query as a next step.
+
+
+
+***********************************In header*****************************
+as user data is coming from auth and userProvider both in header, we need to use nullishqualising operator (??).
+
+const user = state?.user ?? auth?.user
+
+
+
+
+******************** File upload technique ****************************
+as html input type file upload give a button. But if we want to use our custom button to open a image we need to use useRef, to grap that input element and open image using our custom button.
+
+
+
+import { useRef, useState } from "react";
+import { actions } from "../../actions";
+import EditIcon from "../../assets/icons/edit.svg";
+import { useAxios } from "../../hooks/useAxios";
+import { useProfile } from "../../hooks/useProfile";
+
+export const ProfileImage = () => {
+  const { state, dispatch } = useProfile();
+  const { api } = useAxios();
+  const [bio, setBio] = useState(state?.user?.bio);
+  const [editBio, setEditBio] = useState(false);
+
+  const fileUploadRef = useRef();
+
+  const handleImageUpload = (event) => {
+    event.preventDefault();
+
+    fileUploadRef.current.addEventListener("change", updateImageDisplay);
+    fileUploadRef.current.click();
+  };
+
+  const updateImageDisplay = async () => {
+    const formData = new FormData();
+    for (const file of fileUploadRef.current.files) {
+      formData.append("avatar", file);
+    }
+
+    try {
+      const response = await api.post(
+        `${import.meta.env.VITE_SERVER_BASE_URL}/profile/${state?.user?.id}/avatar`,
+        formData,
+      );
+
+      if (response.status === 200) {
+        dispatch({ type: actions.profile.IMAGE_UPDATED, data: response.data });
+      }
+    } catch (error) {
+      console.error(error);
+      dispatch({ type: actions.profile.DATA_FETCHING, data: error.message });
+    }
+  };
+  return (
+    <div className="relative mb-8 max-h-[180px] max-w-[180px] rounded-full lg:mb-11 lg:max-h-[218px] lg:max-w-[218px]">
+      <img
+        className="w-full h-full object-cover rounded-full aspect-square"
+        src={`${import.meta.env.VITE_SERVER_BASE_URL}/${state?.user?.avatar}`}
+        alt={state?.user?.firstName}
+      />
+
+      <form>
+        <button
+          onClick={handleImageUpload}
+          className="flex-center absolute bottom-4 right-4 h-7 w-7 rounded-full bg-black/50 hover:bg-black/80 cursor-pointer"
+          type="submit"
+        >
+          <img src={EditIcon} alt="Edit" />
+        </button>
+
+        <input id="file" type="file" hidden ref={fileUploadRef} />
+      </form>
+    </div>
+  );
+};
+
+
