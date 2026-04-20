@@ -34,7 +34,7 @@ export const Header = () => {
           <Logout />
 
           <Link to={"/me"} className="flex-center !ml-8 gap-3">
-            <span className="text-lg font-medium lg:text-xl">
+            <span className="text-sm font-medium lg:text-xl">
               {user?.firstName} {user?.lastName}
             </span>
             <img

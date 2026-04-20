@@ -539,3 +539,47 @@ export const ProfileImage = () => {
 };
 
 
+
+********************When same function architecture is described twice**********************
+
+how we can make it one function with resusable code: pass the difference thing as a fucntion parameter. and use one function to update both.
+
+  const handleProfileUpdate = async (fields, setEdit) => {
+    dispatch({ type: actions.profile.DATA_FETCHING });
+
+    try {
+      const response = await api.patch(
+        `${import.meta.env.VITE_SERVER_BASE_URL}/profile/${state?.user?.id}`,
+        fields,
+      );
+
+      if (response.status === 200) {
+        dispatch({
+          type: actions.profile.USER_DATA_EDITED,
+          data: response.data,
+        });
+      }
+      setEdit(false);
+    } catch (error) {
+      console.error(error);
+      dispatch({ type: actions.profile.DATA_FETCH_ERROR, data: error.message });
+    }
+  };
+
+
+
+  ***************************Input width changes with typing input**********************
+
+
+example: 
+
+<input
+     type="text"
+     size={Math.max(10, firstName.length)}
+     className="p-1 rounded-md text-gray-300 text-xl font-semibold"
+     value={firstName}
+     onChange={(e) => setFirstName(e.target.value)}
+/>
+
+
+
