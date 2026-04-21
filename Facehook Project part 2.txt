@@ -583,3 +583,9 @@ example:
 
 
 
+*********************************working with big array with simirlar data********************************
+
+like postList => postCard =>  divide with more smaller components.
+
+
+

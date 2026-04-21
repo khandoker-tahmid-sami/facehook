@@ -126,7 +126,7 @@ export const ProfileInfo = () => {
       </div>
 
       {/* User bio */}
-      <div className="mt-4 flex items-start gap-2 lg:mt-6">
+      <div className="mt-4 flex items-center content-center gap-2 lg:mt-6">
         {!editBio ? (
           <div className="flex-1">
             <p className="leading-[188%] text-gray-400 lg:text-lg">{bio}</p>
