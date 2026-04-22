@@ -8,9 +8,9 @@ export const PostCard = ({post}) => {
   return (
     <article className="card mt-6 lg:mt-8">
         <PostHeader post={post}/>
-        <PostBody/>
-        <PostAction/>
-        <PostComments/>
+        <PostBody post={post}/>
+        <PostAction post={post}/>
+        <PostComments post={post}/>
     </article>
   )
 }

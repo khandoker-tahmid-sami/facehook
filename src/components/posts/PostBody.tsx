@@ -1,19 +1,15 @@
-export const PostBody = () => {
+export const PostBody = ({ post }) => {
   return (
     <div className="border-b border-[#3F3F3F] py-4 lg:py-5 lg:text-xl">
       {/* <!-- If Post has Image, Render this block --> */}
       <div className="flex items-center justify-center overflow-hidden">
-        <img className="max-w-full" src="./assets/images/poster.png" alt="poster" />
+        <img
+          className="max-w-full"
+          src={`${import.meta.env.VITE_SERVER_BASE_URL}/${post?.image}`}
+          alt="poster"
+        />
       </div>
-      <p>
-        Grateful for the incredible experience of serving as the President of
-        the Grand Jury board for this year's Digital Marketing Award organized
-        by Bangladesh Brand Forum. Judging the best digital marketing campaigns
-        was not just a responsibility but a journey of appreciation for
-        innovation and creativity. The judging process, ensuring transparency,
-        brought to light so many beautiful campaigns. Cheers to the dynamic
-        world of digital marketing! sdfasd asdca sdfa sdca sdfa
-      </p>
+      <p>{post?.content}</p>
     </div>
   );
 };
