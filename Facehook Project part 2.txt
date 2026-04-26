@@ -589,3 +589,257 @@ like postList => postCard =>  divide with more smaller components.
 
 
 
+
+
+******************************Things to check**************************
+
+Check if you change something, where it will effect. In this project, like if I change a picture, where it will effect check that. Based on that we have use context, hooks, reducers.
+
+
+In case of home page data we are using context here. Because we might not use that data in another page. Thats why we are not creating context and hooks and do not over enginnering something. But we are using reducers here to maintain all the state in a high level.
+
+
+
+
+
+
+***********************Registration**********************************
+
+
+remeber created response status is 201
+
+
+
+
+
+
+
+
+
+****************************Implementing Like, and not Like feature ****************************
+Why like feature is patch request. Because when we want to update data partially not the fully then we do patch request. Post request is used to update data fully.
+
+I implemented Like feature using local state of PostAction component: 
+
+ const [like, setLike] = useState(post?.likes?.includes(auth?.user?.id));
+
+ const handleLike = async () => {
+    // console.log("button clicked");
+
+    try {
+      const response = await api.patch(
+        `${import.meta.env.VITE_SERVER_BASE_URL}/posts/${post?.id}/like`,
+      );
+
+      if (response.status === 200) {
+        setLike(!like);
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+
+
+
+
+But i can implement it using reducers: 
+
+
+Yes, you should use it. Here's why and the steps:
+
+Current approach (local useState) — works but has a problem: if the same post appears in multiple places or the like count needs to update, each component has its own isolated state and they go out of sync.
+
+Reducer approach (POST_LIKED action) — the like state lives in the shared posts array, so every component reading from it stays in sync automatically.
+
+Steps to implement:
+
+Step 1 — Handle POST_LIKED in the reducer (PostReducer.ts)
+
+When liked/unliked, find the post and toggle the user ID in its likes array:
+
+
+case actions.post.POST_LIKED: {
+  return {
+    ...state,
+    posts: state.posts.map((post) =>
+      post.id === action.postId
+        ? {
+            ...post,
+            likes: post.likes.includes(action.userId)
+              ? post.likes.filter((id) => id !== action.userId)
+              : [...post.likes, action.userId],
+          }
+        : post
+    ),
+  };
+}
+Step 2 — Pass dispatch down to PostAction
+
+HomePage has dispatch from useReducer. Pass it through PostList → PostCard → PostAction.
+
+Step 3 — Update handleLike in PostAction (PostAction.tsx)
+
+After the API succeeds, dispatch instead of setLike:
+
+
+if (response.status === 200) {
+  dispatch({ type: actions.post.POST_LIKED, postId: post.id, userId: auth.user.id });
+}
+Step 4 — Derive like from props instead of useState
+
+
+const like = post?.likes?.includes(auth?.user?.id);
+// remove the useState line
+Summary of the flow: API call → success → dispatch POST_LIKED → reducer updates posts array → React re-renders with new data. No stale local state.
+
+Want me to implement all these steps?
+
+
+
+****************************Implementing comment feature*****************************
+
+Thnik aboout state first when you start to implement something. If you have some data that does not need to change then you can just get it from database and show it in the UI. But if you have to changr that data you have to use state and using that state to show data from database.
+
+When there is no button and we want to post data to database using enter key then you have to use onKeyDown prop of input.
+
+
+
+const handleComment = async (e) => {
+    const keyCode = e.keyCode;
+
+    if (keyCode === 13) {
+      try {
+        const response = await api.patch(
+          `${import.meta.env.VITE_SERVER_BASE_URL}/posts/${post?.id}/comment`,
+          { comment },
+        );
+
+        if (response.status === 200) {
+          setComments([...response.data.comments]);
+          setComment("");
+        }
+      } catch (error) {
+        console.error(error);
+      }
+    }
+  };
+
+
+
+<input
+            value={comment}
+            onChange={(e) => setComment(e.target.value)}
+            onKeyDown={(e) => handleComment(e)}
+            type="text"
+            className="h-8 w-full rounded-full bg-lighterDark px-4 text-xs focus:outline-none sm:h-[38px]"
+            name="post"
+            id="post"
+            placeholder="What's on your mind?"
+          />
+
+
+
+
+
+
+**********************************Create, edit and delete post ***********************************
+
+1. Create Post:
+
+When you create post using reducers then you have think in reducers about sort, filter. Just like I want the new post should come in first 
+
+So I did this: 
+
+case actions.post.POST_CREATED: {
+      return {
+        ...state,
+        loading: false,
+        posts: [action.data, ...state.posts],
+      };
+    }
+
+
+
+Handling image upload while creating post: 
+
+    const fileUploadRef = useRef();
+
+    const handleImageChange = () => {
+    const file = fileUploadRef.current.files[0];
+
+    if (file) {
+      setImage(file);
+    }
+  };
+
+    const postData = new FormData();
+
+    postData.append("content", formData.content);
+    if (image) {
+      postData.append("image", image);
+    }
+
+
+     <img
+            src={URL.createObjectURL(image)}
+            alt="preview"
+            className="mb-3 w-full rounded-lg"
+          />
+
+
+Why useRef for image upload?
+When you click "Add Photo", the browser needs to open the file picker dialog. That dialog is triggered by a <input type="file"> element.
+
+Normally in React you control inputs with useState (controlled inputs). But a file input is special — you cannot set its value programmatically for security reasons. The only way to interact with it is through the actual DOM element.
+
+useRef gives you direct access to that real DOM element:
+
+
+const fileUploadRef = useRef();
+
+// fileUploadRef.current  →  the actual <input> DOM element
+// fileUploadRef.current.files[0]  →  the file the user selected
+Without useRef you have no way to read which file the user picked.
+
+Why new FormData() now but not before?
+Before (text only post), you were sending JSON:
+
+
+{ "content": "Hello world" }
+Axios sends this automatically as application/json. Simple.
+
+Now you need to send both text AND a file together. Files cannot be sent as JSON — they are binary data. The only way to send mixed data (text + file) over HTTP is using multipart/form-data encoding, which is exactly what FormData does:
+
+
+const postData = new FormData();
+postData.append("content", formData.content);  // text
+postData.append("image", image);               // binary file
+When you pass a FormData object to axios, it automatically sets the correct Content-Type: multipart/form-data header and handles the encoding for you.
+
+Simple analogy:
+
+JSON = putting a letter in an envelope
+FormData = putting a letter + a photo in a package — you need a different container
+
+
+
+
+
+
+
+***************************Topics that i can improve in this project **************************
+
+1. create an api to check user is already exist or not (This is already implemented in registration api.)
+
+2. Latest comments always on top: (done)
+
+.sort() mutates the original array, which can cause bugs with React state. Spread first,
+
+[...postComments].sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime())
+
+Convert createdAt to a number for comparison. createdAt is a date string, so you need new Date().getTime() to subtract them properly:
+
+3. Edit or delet own commment. 
+
+4. Edit or delete own post.

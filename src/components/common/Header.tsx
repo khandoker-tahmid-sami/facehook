@@ -37,11 +37,18 @@ export const Header = () => {
             <span className="text-sm font-medium lg:text-xl">
               {user?.firstName} {user?.lastName}
             </span>
-            <img
-              className="max-h-[32px] max-w-[32px] lg:max-h-[44px] lg:max-w-[44px] rounded-full object-cover aspect-square"
-              src={`${import.meta.env.VITE_SERVER_BASE_URL}/${user.avatar}`}
-              alt=""
-            />
+            {user.avatar ? (
+              <img
+                className="max-h-[32px] max-w-[32px] lg:max-h-[44px] lg:max-w-[44px] rounded-full object-cover aspect-square"
+                src={`${import.meta.env.VITE_SERVER_BASE_URL}/${user.avatar}`}
+                alt=""
+              />
+            ) : (
+              <div className="flex-center max-h-[32px] max-w-[32px] lg:max-h-[50px] lg:max-w-[50px] rounded-full bg-blue-500 text-white text-sm font-bold aspect-square p-2">
+                {user?.firstName?.[0]}
+                {user?.lastName?.[0]}
+              </div>
+            )}
           </Link>
         </div>
       </div>

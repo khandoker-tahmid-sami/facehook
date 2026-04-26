@@ -41,16 +41,23 @@ export const ProfileImage = () => {
   };
   return (
     <div className="relative mb-8 max-h-[180px] max-w-[180px] rounded-full lg:mb-11 lg:max-h-[218px] lg:max-w-[218px]">
-      <img
-        className="w-full h-full object-cover rounded-full aspect-square"
-        src={`${import.meta.env.VITE_SERVER_BASE_URL}/${state?.user?.avatar}`}
-        alt={state?.user?.firstName}
-      />
+      {state?.user?.avatar ? (
+        <img
+          className="w-full h-full object-cover rounded-full aspect-square"
+          src={`${import.meta.env.VITE_SERVER_BASE_URL}/${state?.user?.avatar}`}
+          alt={state?.user?.firstName}
+        />
+      ) : (
+       <div className="relative max-h-[180px] max-w-[180px] rounded-full lg:max-h-[218px] lg:max-w-[218px] bg-blue-500 text-white text-xl font-bold aspect-square p-15">
+          {state?.user?.firstName?.[0]}
+          {state?.user?.lastName?.[0]}
+        </div>
+      )}
 
       <form>
         <button
           onClick={handleImageUpload}
-          className="flex-center absolute bottom-4 right-4 h-7 w-7 rounded-full bg-black/50 hover:bg-black/80 cursor-pointer"
+          className={`flex-center absolute ${state?.user?.avatar ? "bottom-4" : "bottom-0"} right-4 h-7 w-7 rounded-full bg-black/50 hover:bg-black/80 cursor-pointer`}
           type="submit"
         >
           <img src={EditIcon} alt="Edit" />

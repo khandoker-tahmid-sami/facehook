@@ -114,7 +114,10 @@ export const ProfileInfo = () => {
               <img src={EditIcon} alt="Edit" />
             </button>
           ) : (
-            <button onClick={() => handleProfileUpdate({email}, setEditEmail)} className="flex-center h-7 w-7 rounded-full cursor-pointer">
+            <button
+              onClick={() => handleProfileUpdate({ email }, setEditEmail)}
+              className="flex-center h-7 w-7 rounded-full cursor-pointer"
+            >
               <img
                 src={CheckIcon}
                 alt="Edit"
@@ -127,18 +130,40 @@ export const ProfileInfo = () => {
 
       {/* User bio */}
       <div className="mt-4 flex items-center content-center gap-2 lg:mt-6">
-        {!editBio ? (
-          <div className="flex-1">
-            <p className="leading-[188%] text-gray-400 lg:text-lg">{bio}</p>
-          </div>
+        {bio ? (
+          <>
+            {!editBio ? (
+              <div className="flex-1">
+                <p className="leading-[188%] text-gray-400 lg:text-lg">{bio}</p>
+              </div>
+            ) : (
+              <textarea
+                className="p-2 leading-[188%] text-gray-300 lg:text-lg rounded-md"
+                value={bio}
+                onChange={(e) => setBio(e.target.value)}
+                rows={4}
+                cols={55}
+              ></textarea>
+            )}
+          </>
         ) : (
-          <textarea
-            className="p-2 leading-[188%] text-gray-300 lg:text-lg rounded-md"
-            value={bio}
-            onChange={(e) => setBio(e.target.value)}
-            rows={4}
-            cols={55}
-          ></textarea>
+          <>
+            {!editBio ? (
+              <div className="flex-1">
+               <p className="leading-[188%] text-gray-500 italic lg:text-lg">
+                Tell people a little about yourself.
+              </p>
+              </div>
+            ) : (
+              <textarea
+                className="p-2 leading-[188%] text-gray-300 lg:text-lg rounded-md"
+                value={bio}
+                onChange={(e) => setBio(e.target.value)}
+                rows={4}
+                cols={55}
+              ></textarea>
+            )}
+          </>
         )}
 
         {!editBio ? (

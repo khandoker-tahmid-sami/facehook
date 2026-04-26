@@ -3,11 +3,16 @@ import ThreeDots from "../../assets/icons/3dots.svg";
 import DeleteIcon from "../../assets/icons/delete.svg";
 import EditIcon from "../../assets/icons/edit.svg";
 import TimeIcon from "../../assets/icons/time.svg";
+import { useAuth } from "../../hooks/useAuth";
 import { formatDateTime } from "../../utils";
 
 export const PostHeader = ({ post }) => {
+  const { auth } = useAuth();
   const authorName = post?.author?.name;
   const [headerAction, setHeaderAction] = useState(false);
+
+  const isMe = post?.author?.id === auth?.user?.id;
+
   return (
     <header className="flex items-center justify-between gap-4">
       {/* <!-- author info --> */}
@@ -30,13 +35,16 @@ export const PostHeader = ({ post }) => {
       {/* <!-- author info ends --> */}
 
       {/* <!-- action dot --> */}
+
       <div className="relative">
-        <button
-          onClick={() => setHeaderAction(!headerAction)}
-          className="cursor-pointer"
-        >
-          <img src={ThreeDots} alt="3dots of Action" />
-        </button>
+        {isMe && (
+          <button
+            onClick={() => setHeaderAction(!headerAction)}
+            className="cursor-pointer"
+          >
+            <img src={ThreeDots} alt="3dots of Action" />
+          </button>
+        )}
 
         {/* <!-- Action Menus Popup --> */}
         {headerAction && (

@@ -1,9 +1,52 @@
-import { useAuth } from "../hooks/useAuth";
+import { useEffect } from "react";
+import { actions } from "../actions";
+import { NewPost } from "../components/posts/NewPost";
+import { PostList } from "../components/posts/PostList";
+import { useAxios } from "../hooks/useAxios";
+
+import { usePost } from "../hooks/usePost";
 
 const HomePage = () => {
-  const { auth } = useAuth();
-  console.log(auth);
-  return <div>HomePage</div>;
+  // const { auth } = useAuth();
+  const { api } = useAxios();
+  const { state, dispatch } = usePost();
+
+  useEffect(() => {
+    dispatch({ type: actions.post.DATA_FETCHING });
+
+    const fetchPost = async () => {
+      try {
+        const response = await api.get(
+          `${import.meta.env.VITE_SERVER_BASE_URL}/posts`,
+        );
+
+        if (response.status === 200) {
+          dispatch({ type: actions.post.DATA_FETCHED, data: response.data });
+        }
+      } catch (error) {
+        console.error(error);
+        dispatch({ type: actions.post.DATA_FETCH_ERROR, error: error.message });
+      }
+    };
+
+    fetchPost();
+  }, []);
+
+  console.log(state?.posts);
+
+  if (state?.loading) {
+    return <p>We are loading feed....</p>;
+  }
+
+  if (state?.error) {
+    return <p>Error in fetching posts {state?.error?.message}</p>;
+  }
+  return (
+    <>
+      <NewPost />
+      <PostList posts={state?.posts} />
+    </>
+  );
 };
 
 export default HomePage;
