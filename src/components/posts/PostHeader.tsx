@@ -5,14 +5,32 @@ import EditIcon from "../../assets/icons/edit.svg";
 import TimeIcon from "../../assets/icons/time.svg";
 import { useAuth } from "../../hooks/useAuth";
 import { formatDateTime } from "../../utils";
+import { useAxios } from "../../hooks/useAxios";
+import { usePost } from "../../hooks/usePost";
+import { actions } from "../../actions";
 
 export const PostHeader = ({ post }) => {
   const { auth } = useAuth();
+  const {api} = useAxios()
+  const {dispatch} = usePost()
   const authorName = post?.author?.name;
   const [headerAction, setHeaderAction] = useState(false);
 
   const isMe = post?.author?.id === auth?.user?.id;
 
+  const handlePostDelete = async() => {
+    try{
+      const response = await api.delete(`${import.meta.env.VITE_SERVER_BASE_URL}/posts/${post?.id}`)
+
+      if(response.status === 200){
+          dispatch({type: actions.post.DATA_DELETED, data: post?.id})
+      }
+      
+    }catch(error){
+      console.error(error)
+      dispatch({type: actions.post.DATA_FETCH_ERROR, error: error.message})
+    }
+  }
   return (
     <header className="flex items-center justify-between gap-4">
       {/* <!-- author info --> */}
@@ -53,7 +71,7 @@ export const PostHeader = ({ post }) => {
               <img src={EditIcon} alt="Edit" />
               Edit
             </button>
-            <button className="action-menu-item hover:text-red-500 cursor-pointer">
+            <button onClick={handlePostDelete} className="action-menu-item hover:text-red-500 cursor-pointer">
               <img src={DeleteIcon} alt="Delete" />
               Delete
             </button>

@@ -840,6 +840,87 @@ FormData = putting a letter + a photo in a package — you need a different cont
 
 Convert createdAt to a number for comparison. createdAt is a date string, so you need new Date().getTime() to subtract them properly:
 
-3. Edit or delet own commment. 
+3. Edit or delet own commment: Delete comment to be implemented: 
 
-4. Edit or delete own post.
+Isme in DeleteCommentList component: const isMe = comment?.author?.id === auth?.user?.id;
+
+
+Good — POST_COMMENT_DELETED is already defined. Here are the steps:
+
+Step 1 — Handle POST_COMMENT_DELETED in the reducer (PostReducer.ts)
+
+Find the post by postId, then filter out the deleted comment by commentId:
+
+
+case actions.post.POST_COMMENT_DELETED: {
+  return {
+    ...state,
+    posts: state.posts.map((post) =>
+      post.id === action.postId
+        ? {
+            ...post,
+            comments: post.comments.filter(
+              (comment) => comment.id !== action.commentId
+            ),
+          }
+        : post
+    ),
+  };
+}
+Step 2 — Pass post and dispatch as props to PostCommentsList
+
+In PostComments.tsx, you already have post. Pass it along:
+
+
+<PostCommentsList postComments={comments} post={post} />
+Step 3 — Add handleDeleteComment in PostCommentsList
+
+Accept post as a prop, add useAxios, useAuth, usePost, then the delete handler:
+
+
+const { api } = useAxios();
+const { auth } = useAuth();
+const { dispatch } = usePost();
+
+const handleDeleteComment = async (commentId) => {
+  try {
+    const response = await api.delete(
+      `${import.meta.env.VITE_SERVER_BASE_URL}/posts/${post?.id}/comment/${commentId}`
+    );
+
+    if (response.status === 200) {
+      dispatch({
+        type: actions.post.POST_COMMENT_DELETED,
+        postId: post.id,
+        commentId,
+      });
+    }
+  } catch (error) {
+    console.error(error);
+  }
+};
+Step 4 — Add the delete button in the comment row
+
+Show it only if the logged-in user is the comment author:
+
+
+{comment?.author?.id === auth?.user?.id && (
+  <button
+    onClick={() => handleDeleteComment(comment.id)}
+    className="ml-auto text-gray-400 hover:text-red-500 cursor-pointer"
+  >
+    <svg .../>  {/* trash icon from earlier */}
+  </button>
+)}
+Flow summary:
+Delete button clicked → API DELETE call → success → dispatch POST_COMMENT_DELETED → reducer filters out the comment → React re-renders without it.
+
+Want me to implement all the steps?
+
+
+
+
+
+
+
+4. Edit or delete own post: Delete post done. Edit to be implemented.
