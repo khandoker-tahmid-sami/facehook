@@ -1,9 +1,33 @@
+import { actions } from "../../actions";
 import DeleteIcon from "../../assets/icons/delete.svg";
 import { useAuth } from "../../hooks/useAuth";
+import { useAxios } from "../../hooks/useAxios";
+import { usePost } from "../../hooks/usePost";
 
-export const PostCommentsList = ({ postComments }) => {
+export const PostCommentsList = ({ postComments, post, setComments }) => {
   const { auth } = useAuth();
-  const handleCommentDelete = () => {};
+  const { api } = useAxios();
+  const { dispatch } = usePost();
+
+  const handleCommentDelete = async (commentId) => {
+    try {
+      const response = await api.delete(
+        `${import.meta.env.VITE_SERVER_BASE_URL}/posts/${post?.id}/comment/${commentId}`,
+      );
+
+      if (response.status === 200) {
+        dispatch({
+          type: actions.post.POST_COMMENT_DELETED,
+          postId: post.id,
+          commentId,
+        });
+
+        setComments((prev) => prev.filter((c) => c.id !== commentId));
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  };
   return (
     <div className="space-y-4 divide-y divide-lighterDark pl-2 lg:pl-3">
       {postComments &&
@@ -27,7 +51,7 @@ export const PostCommentsList = ({ postComments }) => {
                     <span>{comment?.comment}</span>
                     {isMe && (
                       <button
-                        onClick={handleCommentDelete}
+                        onClick={() => handleCommentDelete(comment.id)}
                         className="cursor-pointer ml-4"
                       >
                         <img src={DeleteIcon} alt="3dots of Action" />
