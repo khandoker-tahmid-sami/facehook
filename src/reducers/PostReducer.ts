@@ -68,14 +68,11 @@ const postReducer = (state, action) => {
           post.id === action.postId
             ? {
                 ...post,
-                comments: post.comments.map(
-                  (comment) => comment.id === action.commentId,
-                )
-                  ? {
-                      ...comment,
-                      comment: action.comment,
-                    }
-                  : comment,
+                comments: post.comments.map((comment) =>
+                  comment.id === action.commentId
+                    ? { ...comment, comment: action.comment }
+                    : comment,
+                ),
               }
             : post,
         ),

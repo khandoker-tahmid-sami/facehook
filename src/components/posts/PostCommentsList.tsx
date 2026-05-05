@@ -10,7 +10,7 @@ import { usePost } from "../../hooks/usePost";
 export const PostCommentsList = ({ post, postComments, setComments }) => {
   const [activeCommentId, setActiveCommentId] = useState(null);
   const [editingComnentId, setEditingCommentId] = useState(null);
-  const [editCommentText, setEditCommentText] = useState("")
+  const [editCommentText, setEditCommentText] = useState("");
 
   const { dispatch } = usePost();
   const { api } = useAxios();
@@ -36,24 +36,33 @@ export const PostCommentsList = ({ post, postComments, setComments }) => {
     }
   };
 
-  const handleCommentEdit = async(commentId) =>{
-      try{
-        const response = await api.patch(`${import.meta.env.VITE_SERVER_BASE_URL}/posts/${post?.id}/comment`, {comment: editCommentText})
+  const handleCommentEdit = async (commentId) => {
+    try {
+      const response = await api.patch(
+        `${import.meta.env.VITE_SERVER_BASE_URL}/posts/${post?.id}/comment/${commentId}`,
+        { comment: editCommentText },
+      );
 
-        if(response?.status === 200){
-          dispatch({
-            type: actions.post.POST_COMMENT_EDITED, postId: post?.id, commentId, comment: editCommentText
-          })
+      if (response?.status === 200) {
+        dispatch({
+          type: actions.post.POST_COMMENT_EDITED,
+          postId: post?.id,
+          commentId,
+          comment: editCommentText,
+        });
 
-          setComments((prev) => prev.map((c) => (c.id === commentId ? {...c, comment: editCommentText} : c)))
-        }
-
-        setEditingCommentId(null)
-
-      }catch(error){
-        console.error(error)
+        setComments((prev) =>
+          prev.map((c) =>
+            c.id === commentId ? { ...c, comment: editCommentText } : c,
+          ),
+        );
       }
-  }
+
+      setEditingCommentId(null);
+    } catch (error) {
+      console.error(error);
+    }
+  };
   return (
     <div className="space-y-4 divide-y divide-lighterDark pl-2 lg:pl-3">
       {postComments &&
@@ -75,11 +84,41 @@ export const PostCommentsList = ({ post, postComments, setComments }) => {
                   <div className="flex justify-between items-center text-xs lg:text-sm">
                     <div className="flex gap-1 items-center">
                       <span>{comment?.author?.name}: </span>
-                      <span>{comment?.comment}</span>
+                      {editingComnentId === comment.id ? (
+                        <div className="flex items-center">
+                          <input
+                            type="text"
+                            placeholder="update your comment"
+                            className="h-8 w-full rounded-full bg-lighterDark px-4 text-xs focus:outline-none sm:h-[38px]"
+                            value={editCommentText}
+                            onChange={(e) => setEditCommentText(e.target.value)}
+                          />
+                          <div className="flex gap-2">
+                            <button
+                              onClick={() => handleCommentEdit(comment.id)}
+                              className="text-xs text-lwsGreen cursor-pointer"
+                            >
+                              Save
+                            </button>
+                            <button
+                              onClick={() => setEditingCommentId(null)}
+                              className="text-xs text-gray-400 cursor-pointer"
+                            >
+                              Cancel
+                            </button>
+                          </div>
+                        </div>
+                      ) : (
+                        <span>{comment?.comment}</span>
+                      )}
                     </div>
                     {isMe && (
                       <button
-                        onClick={() => setActiveCommentId(activeCommentId === comment.id ? null : comment.id)}
+                        onClick={() =>
+                          setActiveCommentId(
+                            activeCommentId === comment.id ? null : comment.id,
+                          )
+                        }
                         className="cursor-pointer"
                       >
                         <img
@@ -92,7 +131,14 @@ export const PostCommentsList = ({ post, postComments, setComments }) => {
 
                     {activeCommentId === comment.id && (
                       <div className="absolute flex right-0 top-5 z-10 gap-1 rounded-md border border-[#3F3F3F] bg-mediumDark py-1 shadow-lg divide-x divide-[#3F3F3F]">
-                        <button className="flex gap-2 px-3 py-2 cursor-pointer text-[12px]">
+                        <button
+                          onClick={() => {
+                            setEditingCommentId(comment?.id);
+                            setEditCommentText(comment.comment);
+                            setActiveCommentId(null);
+                          }}
+                          className="flex gap-2 px-3 py-2 cursor-pointer text-[12px]"
+                        >
                           <img
                             src={EditIcon}
                             alt=""

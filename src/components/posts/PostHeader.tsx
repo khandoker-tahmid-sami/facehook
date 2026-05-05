@@ -36,7 +36,7 @@ export const PostHeader = ({ post }) => {
       {/* <!-- author info --> */}
       <div className="flex items-center gap-3">
         <img
-          className="max-w-10 max-h-10 rounded-full lg:max-h-[58px] lg:max-w-[58px]"
+          className="max-w-10 max-h-10 rounded-full object-cover aspect-square lg:max-h-[58px] lg:max-w-[58px]"
           src={`${import.meta.env.VITE_SERVER_BASE_URL}/${post?.author?.avatar}`}
           alt={authorName}
         />
