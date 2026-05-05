@@ -60,6 +60,27 @@ const postReducer = (state, action) => {
         ),
       };
     }
+
+    case actions.post.POST_COMMENT_EDITED: {
+      return {
+        ...state,
+        posts: state.posts.map((post) =>
+          post.id === action.postId
+            ? {
+                ...post,
+                comments: post.comments.map(
+                  (comment) => comment.id === action.commentId,
+                )
+                  ? {
+                      ...comment,
+                      comment: action.comment,
+                    }
+                  : comment,
+              }
+            : post,
+        ),
+      };
+    }
     default: {
       return state;
     }

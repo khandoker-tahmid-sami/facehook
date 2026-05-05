@@ -9,6 +9,9 @@ import { usePost } from "../../hooks/usePost";
 
 export const PostCommentsList = ({ post, postComments, setComments }) => {
   const [activeCommentId, setActiveCommentId] = useState(null);
+  const [editingComnentId, setEditingCommentId] = useState(null);
+  const [editCommentText, setEditCommentText] = useState("")
+
   const { dispatch } = usePost();
   const { api } = useAxios();
   const { auth } = useAuth();
@@ -32,6 +35,25 @@ export const PostCommentsList = ({ post, postComments, setComments }) => {
       console.error(error);
     }
   };
+
+  const handleCommentEdit = async(commentId) =>{
+      try{
+        const response = await api.patch(`${import.meta.env.VITE_SERVER_BASE_URL}/posts/${post?.id}/comment`, {comment: editCommentText})
+
+        if(response?.status === 200){
+          dispatch({
+            type: actions.post.POST_COMMENT_EDITED, postId: post?.id, commentId, comment: editCommentText
+          })
+
+          setComments((prev) => prev.map((c) => (c.id === commentId ? {...c, comment: editCommentText} : c)))
+        }
+
+        setEditingCommentId(null)
+
+      }catch(error){
+        console.error(error)
+      }
+  }
   return (
     <div className="space-y-4 divide-y divide-lighterDark pl-2 lg:pl-3">
       {postComments &&

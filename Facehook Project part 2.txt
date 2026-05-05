@@ -922,130 +922,136 @@ Want me to implement all the steps?
 
 
 
-******Edit comment**************************
+******Edit comment steps**************************
 
-Step 1 — Add action type
-File: src/actions/index.ts
+Here are the steps:
+
+1. PostReducer.ts — POST_COMMENT_EDITED case
+Map over state.posts to find the matching postId, then map over that post's comments to find the matching commentId, and return the comment with the updated comment text from action.comment.
+
+Action payload shape expected: { type, postId, commentId, comment: updatedText }
+
+2. PostCommentsList.tsx — state
+Add two new state variables:
+
+editingCommentId — tracks which comment is currently being edited (or null)
+editText — holds the current value of the edit input
+3. PostCommentsList.tsx — Edit button onClick
+When Edit is clicked:
+
+Set editingCommentId to comment.id
+Set editText to comment.comment (pre-fill with existing text)
+Close the dropdown by setting activeCommentId to null
+4. PostCommentsList.tsx — inline edit UI
+Where the comment text is currently displayed (<span>{comment?.comment}</span>), conditionally render either:
+
+An <input> (when editingCommentId === comment.id) bound to editText, with a Save button and a Cancel button
+The plain <span> otherwise
+5. PostCommentsList.tsx — handleCommentEdit function
+On Save:
+
+Call api.patch(.../posts/${post.id}/comment/${commentId}, { comment: editText })
+On success, dispatch POST_COMMENT_EDITED with postId, commentId, and comment: editText
+Update local postComments state via setComments
+Reset editingCommentId to null
+On Cancel: just reset editingCommentId to null.
 
 
-POST_COMMENT_DELETED: "POST_COMMENT_DELETED",
-POST_COMMENT_EDITED: "POST_COMMENT_EDITED"   // add this line
-Step 2 — Update PostCommentsList.tsx
-File: src/components/posts/PostCommentsList.tsx
 
+Step 1 — PostReducer.ts: Fill in POST_COMMENT_EDITED
 
-import { useState } from "react";
-import DeleteIcon from "../../assets/icons/delete.svg";
-import EditIcon from "../../assets/icons/edit.svg";
-import { useAuth } from "../../hooks/useAuth";
-
-export const PostCommentsList = ({ postComments, onCommentEdit, onCommentDelete }) => {
-  const { auth } = useAuth();
-  const [editingId, setEditingId] = useState(null);
-  const [editText, setEditText] = useState("");
-
-  const handleEditClick = (comment) => {
-    setEditingId(comment.id);
-    setEditText(comment.comment);
+case actions.post.POST_COMMENT_EDITED: {
+  return {
+    ...state,
+    posts: state.posts.map((post) =>
+      post.id === action.postId
+        ? {
+            ...post,
+            comments: post.comments.map((comment) =>
+              comment.id === action.commentId
+                ? { ...comment, comment: action.comment }
+                : comment,
+            ),
+          }
+        : post,
+    ),
   };
+}
+Step 2 — PostCommentsList.tsx: Add state variables
 
-  const handleSave = (commentId) => {
-    onCommentEdit(commentId, editText);
-    setEditingId(null);
-  };
+const [editingCommentId, setEditingCommentId] = useState(null);
+const [editText, setEditText] = useState("");
+Step 3 — PostCommentsList.tsx: handleCommentEdit function
 
-  const handleCancel = () => {
-    setEditingId(null);
-    setEditText("");
-  };
-
-  return (
-    <div className="space-y-4 divide-y divide-lighterDark pl-2 lg:pl-3">
-      {postComments &&
-        [...postComments]
-          .sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime())
-          .map((comment, index) => {
-            const isMe = comment?.author?.id === auth?.user?.id;
-            const isEditing = editingId === comment.id;
-            return (
-              <div key={index} className="flex items-center gap-3 pt-4">
-                <img
-                  className="max-w-6 max-h-6 rounded-full aspect-square object-cover"
-                  src={`${import.meta.env.VITE_SERVER_BASE_URL}/${comment?.author?.avatar}`}
-                  alt="avatar"
-                />
-                <div className="flex-1">
-                  <div className="flex gap-1 text-xs lg:text-sm items-center">
-                    <span>{comment?.author?.name}: </span>
-                    {isEditing ? (
-                      <>
-                        <input
-                          className="flex-1 bg-lighterDark rounded px-2 py-0.5 focus:outline-none"
-                          value={editText}
-                          onChange={(e) => setEditText(e.target.value)}
-                        />
-                        <button onClick={() => handleSave(comment.id)} className="ml-2 text-blue-400">Save</button>
-                        <button onClick={handleCancel} className="ml-1 text-gray-400">Cancel</button>
-                      </>
-                    ) : (
-                      <>
-                        <span>{comment?.comment}</span>
-                        {isMe && (
-                          <>
-                            <button onClick={() => handleEditClick(comment)} className="cursor-pointer ml-2">
-                              <img src={EditIcon} alt="Edit" />
-                            </button>
-                            <button onClick={() => onCommentDelete(comment.id)} className="cursor-pointer ml-1">
-                              <img src={DeleteIcon} alt="Delete" />
-                            </button>
-                          </>
-                        )}
-                      </>
-                    )}
-                  </div>
-                </div>
-              </div>
-            );
-          })}
-    </div>
-  );
-};
-Step 3 — Update PostComments.tsx
-File: src/components/posts/PostComments.tsx
-
-Add the handleCommentEdit function and pass it as a prop:
-
-
-const handleCommentEdit = async (commentId, newText) => {
+const handleCommentEdit = async (commentId) => {
   try {
     const response = await api.patch(
       `${import.meta.env.VITE_SERVER_BASE_URL}/posts/${post?.id}/comment/${commentId}`,
-      { comment: newText },
+      { comment: editText },
     );
-    if (response.status === 200) {
-      setComments([...response.data.comments]);
+
+    if (response?.status === 200) {
+      dispatch({
+        type: actions.post.POST_COMMENT_EDITED,
+        postId: post?.id,
+        commentId,
+        comment: editText,
+      });
+
+      setComments((prev) =>
+        prev.map((c) => (c.id === commentId ? { ...c, comment: editText } : c)),
+      );
+
+      setEditingCommentId(null);
     }
   } catch (error) {
     console.error(error);
   }
 };
-Then update the PostCommentsList usage:
+Step 4 — PostCommentsList.tsx: Edit button onClick
+
+<button
+  onClick={() => {
+    setEditingCommentId(comment.id);
+    setEditText(comment.comment);
+    setActiveCommentId(null);
+  }}
+  className="flex gap-2 px-3 py-2 cursor-pointer text-[12px]"
+>
+  <img src={EditIcon} alt="" className="h-4 w-4" />
+  Edit
+</button>
+Step 5 — PostCommentsList.tsx: Replace comment display with conditional inline edit
+Replace this:
 
 
-{showComments && (
-  <PostCommentsList
-    postComments={comments}
-    onCommentEdit={handleCommentEdit}
-    onCommentDelete={handleCommentDelete}  // wire this up similarly when you implement delete
-  />
+<span>{comment?.comment}</span>
+With:
+
+
+{editingCommentId === comment.id ? (
+  <div className="flex gap-2 items-center">
+    <input
+      className="bg-mediumDark border border-[#3F3F3F] rounded px-2 py-0.5 text-xs text-white outline-none"
+      value={editText}
+      onChange={(e) => setEditText(e.target.value)}
+    />
+    <button
+      onClick={() => handleCommentEdit(comment.id)}
+      className="text-xs text-lwsGreen cursor-pointer"
+    >
+      Save
+    </button>
+    <button
+      onClick={() => setEditingCommentId(null)}
+      className="text-xs text-gray-400 cursor-pointer"
+    >
+      Cancel
+    </button>
+  </div>
+) : (
+  <span>{comment?.comment}</span>
 )}
-Note: This assumes each comment has an id field from the backend. Verify that by logging post.comments — if id is missing, ask the backend to include it. Also confirm the backend supports PATCH /posts/:postId/comment/:commentId.
-
-Ready to implement any step whenever you say.
-
-
-
-
 
 
 
