@@ -60,7 +60,6 @@ const postReducer = (state, action) => {
         ),
       };
     }
-
     default: {
       return state;
     }
