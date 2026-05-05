@@ -840,7 +840,7 @@ FormData = putting a letter + a photo in a package — you need a different cont
 
 Convert createdAt to a number for comparison. createdAt is a date string, so you need new Date().getTime() to subtract them properly:
 
-3. Edit or delet own commment: Delete comment to be implemented: 
+3. Edit or delet own commment: ************************Delete comment to be implemented: 
 
 Isme in DeleteCommentList component: const isMe = comment?.author?.id === auth?.user?.id;
 
@@ -916,6 +916,132 @@ Flow summary:
 Delete button clicked → API DELETE call → success → dispatch POST_COMMENT_DELETED → reducer filters out the comment → React re-renders without it.
 
 Want me to implement all the steps?
+
+
+** Do not use state like showComments because if you click one comment all the comment action will open. Rather use commentId shate to open comment action only the selected comment:
+
+
+
+******Edit comment**************************
+
+Step 1 — Add action type
+File: src/actions/index.ts
+
+
+POST_COMMENT_DELETED: "POST_COMMENT_DELETED",
+POST_COMMENT_EDITED: "POST_COMMENT_EDITED"   // add this line
+Step 2 — Update PostCommentsList.tsx
+File: src/components/posts/PostCommentsList.tsx
+
+
+import { useState } from "react";
+import DeleteIcon from "../../assets/icons/delete.svg";
+import EditIcon from "../../assets/icons/edit.svg";
+import { useAuth } from "../../hooks/useAuth";
+
+export const PostCommentsList = ({ postComments, onCommentEdit, onCommentDelete }) => {
+  const { auth } = useAuth();
+  const [editingId, setEditingId] = useState(null);
+  const [editText, setEditText] = useState("");
+
+  const handleEditClick = (comment) => {
+    setEditingId(comment.id);
+    setEditText(comment.comment);
+  };
+
+  const handleSave = (commentId) => {
+    onCommentEdit(commentId, editText);
+    setEditingId(null);
+  };
+
+  const handleCancel = () => {
+    setEditingId(null);
+    setEditText("");
+  };
+
+  return (
+    <div className="space-y-4 divide-y divide-lighterDark pl-2 lg:pl-3">
+      {postComments &&
+        [...postComments]
+          .sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime())
+          .map((comment, index) => {
+            const isMe = comment?.author?.id === auth?.user?.id;
+            const isEditing = editingId === comment.id;
+            return (
+              <div key={index} className="flex items-center gap-3 pt-4">
+                <img
+                  className="max-w-6 max-h-6 rounded-full aspect-square object-cover"
+                  src={`${import.meta.env.VITE_SERVER_BASE_URL}/${comment?.author?.avatar}`}
+                  alt="avatar"
+                />
+                <div className="flex-1">
+                  <div className="flex gap-1 text-xs lg:text-sm items-center">
+                    <span>{comment?.author?.name}: </span>
+                    {isEditing ? (
+                      <>
+                        <input
+                          className="flex-1 bg-lighterDark rounded px-2 py-0.5 focus:outline-none"
+                          value={editText}
+                          onChange={(e) => setEditText(e.target.value)}
+                        />
+                        <button onClick={() => handleSave(comment.id)} className="ml-2 text-blue-400">Save</button>
+                        <button onClick={handleCancel} className="ml-1 text-gray-400">Cancel</button>
+                      </>
+                    ) : (
+                      <>
+                        <span>{comment?.comment}</span>
+                        {isMe && (
+                          <>
+                            <button onClick={() => handleEditClick(comment)} className="cursor-pointer ml-2">
+                              <img src={EditIcon} alt="Edit" />
+                            </button>
+                            <button onClick={() => onCommentDelete(comment.id)} className="cursor-pointer ml-1">
+                              <img src={DeleteIcon} alt="Delete" />
+                            </button>
+                          </>
+                        )}
+                      </>
+                    )}
+                  </div>
+                </div>
+              </div>
+            );
+          })}
+    </div>
+  );
+};
+Step 3 — Update PostComments.tsx
+File: src/components/posts/PostComments.tsx
+
+Add the handleCommentEdit function and pass it as a prop:
+
+
+const handleCommentEdit = async (commentId, newText) => {
+  try {
+    const response = await api.patch(
+      `${import.meta.env.VITE_SERVER_BASE_URL}/posts/${post?.id}/comment/${commentId}`,
+      { comment: newText },
+    );
+    if (response.status === 200) {
+      setComments([...response.data.comments]);
+    }
+  } catch (error) {
+    console.error(error);
+  }
+};
+Then update the PostCommentsList usage:
+
+
+{showComments && (
+  <PostCommentsList
+    postComments={comments}
+    onCommentEdit={handleCommentEdit}
+    onCommentDelete={handleCommentDelete}  // wire this up similarly when you implement delete
+  />
+)}
+Note: This assumes each comment has an id field from the backend. Verify that by logging post.comments — if id is missing, ask the backend to include it. Also confirm the backend supports PATCH /posts/:postId/comment/:commentId.
+
+Ready to implement any step whenever you say.
 
 
 

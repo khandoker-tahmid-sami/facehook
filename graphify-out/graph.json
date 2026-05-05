@@ -1,0 +1,2589 @@
+{
+  "directed": false,
+  "multigraph": false,
+  "graph": {
+    "hyperedges": [
+      {
+        "id": "post_interaction_icons",
+        "label": "Post Social Interaction Icons (Like, Comment, Share)",
+        "nodes": [
+          "icon_like",
+          "icon_like_fill",
+          "icon_comment",
+          "icon_share"
+        ],
+        "relation": "form",
+        "confidence": "INFERRED",
+        "confidence_score": 0.85,
+        "source_file": "src/assets/icons"
+      },
+      {
+        "id": "post_crud_reducers",
+        "label": "Post CRUD Operations via Reducer Actions",
+        "nodes": [
+          "concept_post_create_reducer",
+          "concept_like_reducer",
+          "concept_delete_comment"
+        ],
+        "relation": "implement",
+        "confidence": "INFERRED",
+        "confidence_score": 0.85,
+        "source_file": "Facehook Project part 2.txt"
+      },
+      {
+        "id": "auth_token_flow",
+        "label": "Authentication Token Management Flow",
+        "nodes": [
+          "concept_auth_context",
+          "concept_token_storage",
+          "concept_axios_interceptor"
+        ],
+        "relation": "participate_in",
+        "confidence": "INFERRED",
+        "confidence_score": 0.95,
+        "source_file": "Facehook Project part 2.txt"
+      },
+      {
+        "id": "social_media_app_visual_identity",
+        "label": "Social Media App Visual Identity Assets",
+        "nodes": [
+          "auth_illustration_social_media_3d",
+          "avatar_1_user_profile_photo",
+          "avatar_2_user_profile_photo"
+        ],
+        "relation": "form",
+        "confidence": "INFERRED",
+        "confidence_score": 0.85,
+        "source_file": "src/assets/images/auth_illustration.png"
+      },
+      {
+        "id": "user_onboarding_ui_assets",
+        "label": "User Onboarding and Authentication UI Assets",
+        "nodes": [
+          "auth_illustration_social_media_3d",
+          "concept_user_authentication_ui",
+          "concept_default_avatar_set"
+        ],
+        "relation": "participate_in",
+        "confidence": "INFERRED",
+        "confidence_score": 0.75,
+        "source_file": "src/assets/images/auth_illustration.png"
+      },
+      {
+        "id": "social_engagement_visual_theme",
+        "label": "Social Engagement Visual Theme Across Assets",
+        "nodes": [
+          "auth_illustration_social_media_3d",
+          "poster_bangla_social_media_ad",
+          "concept_social_media_engagement"
+        ],
+        "relation": "implement",
+        "confidence": "INFERRED",
+        "confidence_score": 0.65,
+        "source_file": "src/assets/images/poster.png"
+      }
+    ]
+  },
+  "nodes": [
+    {
+      "label": "eslint.config.js",
+      "file_type": "code",
+      "source_file": "eslint.config.js",
+      "source_location": "L1",
+      "id": "eslint_config_js",
+      "community": 12,
+      "norm_label": "eslint.config.js"
+    },
+    {
+      "label": "vite.config.ts",
+      "file_type": "code",
+      "source_file": "vite.config.ts",
+      "source_location": "L1",
+      "id": "vite_config_ts",
+      "community": 13,
+      "norm_label": "vite.config.ts"
+    },
+    {
+      "label": "App.tsx",
+      "file_type": "code",
+      "source_file": "src/App.tsx",
+      "source_location": "L1",
+      "id": "src_app_tsx",
+      "community": 14,
+      "norm_label": "app.tsx"
+    },
+    {
+      "label": "main.tsx",
+      "file_type": "code",
+      "source_file": "src/main.tsx",
+      "source_location": "L1",
+      "id": "src_main_tsx",
+      "community": 5,
+      "norm_label": "main.tsx"
+    },
+    {
+      "label": "index.ts",
+      "file_type": "code",
+      "source_file": "src/actions/index.ts",
+      "source_location": "L1",
+      "id": "src_actions_index_ts",
+      "community": 15,
+      "norm_label": "index.ts"
+    },
+    {
+      "label": "index.ts",
+      "file_type": "code",
+      "source_file": "src/api/index.ts",
+      "source_location": "L1",
+      "id": "src_api_index_ts",
+      "community": 16,
+      "norm_label": "index.ts"
+    },
+    {
+      "label": "LoginForm.tsx",
+      "file_type": "code",
+      "source_file": "src/components/auth/LoginForm.tsx",
+      "source_location": "L1",
+      "id": "src_components_auth_loginform_tsx",
+      "community": 0,
+      "norm_label": "loginform.tsx"
+    },
+    {
+      "label": "LoginForm()",
+      "file_type": "code",
+      "source_file": "src/components/auth/LoginForm.tsx",
+      "source_location": "L12",
+      "id": "auth_loginform_loginform",
+      "community": 0,
+      "norm_label": "loginform()"
+    },
+    {
+      "label": "Logout.tsx",
+      "file_type": "code",
+      "source_file": "src/components/auth/Logout.tsx",
+      "source_location": "L1",
+      "id": "src_components_auth_logout_tsx",
+      "community": 0,
+      "norm_label": "logout.tsx"
+    },
+    {
+      "label": "Logout()",
+      "file_type": "code",
+      "source_file": "src/components/auth/Logout.tsx",
+      "source_location": "L5",
+      "id": "auth_logout_logout",
+      "community": 0,
+      "norm_label": "logout()"
+    },
+    {
+      "label": "RegistrationForm.tsx",
+      "file_type": "code",
+      "source_file": "src/components/auth/RegistrationForm.tsx",
+      "source_location": "L1",
+      "id": "src_components_auth_registrationform_tsx",
+      "community": 5,
+      "norm_label": "registrationform.tsx"
+    },
+    {
+      "label": "RegistrationForm()",
+      "file_type": "code",
+      "source_file": "src/components/auth/RegistrationForm.tsx",
+      "source_location": "L13",
+      "id": "auth_registrationform_registrationform",
+      "community": 5,
+      "norm_label": "registrationform()"
+    },
+    {
+      "label": "Field.tsx",
+      "file_type": "code",
+      "source_file": "src/components/common/Field.tsx",
+      "source_location": "L1",
+      "id": "src_components_common_field_tsx",
+      "community": 17,
+      "norm_label": "field.tsx"
+    },
+    {
+      "label": "Header.tsx",
+      "file_type": "code",
+      "source_file": "src/components/common/Header.tsx",
+      "source_location": "L1",
+      "id": "src_components_common_header_tsx",
+      "community": 0,
+      "norm_label": "header.tsx"
+    },
+    {
+      "label": "CreatePost.tsx",
+      "file_type": "code",
+      "source_file": "src/components/posts/CreatePost.tsx",
+      "source_location": "L1",
+      "id": "src_components_posts_createpost_tsx",
+      "community": 1,
+      "norm_label": "createpost.tsx"
+    },
+    {
+      "label": "handleImageChange()",
+      "file_type": "code",
+      "source_file": "src/components/posts/CreatePost.tsx",
+      "source_location": "L27",
+      "id": "posts_createpost_handleimagechange",
+      "community": 1,
+      "norm_label": "handleimagechange()"
+    },
+    {
+      "label": "handlePostSubmit()",
+      "file_type": "code",
+      "source_file": "src/components/posts/CreatePost.tsx",
+      "source_location": "L35",
+      "id": "posts_createpost_handlepostsubmit",
+      "community": 1,
+      "norm_label": "handlepostsubmit()"
+    },
+    {
+      "label": "NewPost.tsx",
+      "file_type": "code",
+      "source_file": "src/components/posts/NewPost.tsx",
+      "source_location": "L1",
+      "id": "src_components_posts_newpost_tsx",
+      "community": 2,
+      "norm_label": "newpost.tsx"
+    },
+    {
+      "label": "PostAction.tsx",
+      "file_type": "code",
+      "source_file": "src/components/posts/PostAction.tsx",
+      "source_location": "L1",
+      "id": "src_components_posts_postaction_tsx",
+      "community": 0,
+      "norm_label": "postaction.tsx"
+    },
+    {
+      "label": "handleLike()",
+      "file_type": "code",
+      "source_file": "src/components/posts/PostAction.tsx",
+      "source_location": "L14",
+      "id": "posts_postaction_handlelike",
+      "community": 0,
+      "norm_label": "handlelike()"
+    },
+    {
+      "label": "PostBody.tsx",
+      "file_type": "code",
+      "source_file": "src/components/posts/PostBody.tsx",
+      "source_location": "L1",
+      "id": "src_components_posts_postbody_tsx",
+      "community": 7,
+      "norm_label": "postbody.tsx"
+    },
+    {
+      "label": "PostBody()",
+      "file_type": "code",
+      "source_file": "src/components/posts/PostBody.tsx",
+      "source_location": "L1",
+      "id": "posts_postbody_postbody",
+      "community": 7,
+      "norm_label": "postbody()"
+    },
+    {
+      "label": "PostCard.tsx",
+      "file_type": "code",
+      "source_file": "src/components/posts/PostCard.tsx",
+      "source_location": "L1",
+      "id": "src_components_posts_postcard_tsx",
+      "community": 7,
+      "norm_label": "postcard.tsx"
+    },
+    {
+      "label": "PostCard()",
+      "file_type": "code",
+      "source_file": "src/components/posts/PostCard.tsx",
+      "source_location": "L6",
+      "id": "posts_postcard_postcard",
+      "community": 7,
+      "norm_label": "postcard()"
+    },
+    {
+      "label": "PostComments.tsx",
+      "file_type": "code",
+      "source_file": "src/components/posts/PostComments.tsx",
+      "source_location": "L1",
+      "id": "src_components_posts_postcomments_tsx",
+      "community": 1,
+      "norm_label": "postcomments.tsx"
+    },
+    {
+      "label": "handleComment()",
+      "file_type": "code",
+      "source_file": "src/components/posts/PostComments.tsx",
+      "source_location": "L13",
+      "id": "posts_postcomments_handlecomment",
+      "community": 1,
+      "norm_label": "handlecomment()"
+    },
+    {
+      "label": "PostCommentsList.tsx",
+      "file_type": "code",
+      "source_file": "src/components/posts/PostCommentsList.tsx",
+      "source_location": "L1",
+      "id": "src_components_posts_postcommentslist_tsx",
+      "community": 0,
+      "norm_label": "postcommentslist.tsx"
+    },
+    {
+      "label": "handleCommentDelete()",
+      "file_type": "code",
+      "source_file": "src/components/posts/PostCommentsList.tsx",
+      "source_location": "L6",
+      "id": "posts_postcommentslist_handlecommentdelete",
+      "community": 0,
+      "norm_label": "handlecommentdelete()"
+    },
+    {
+      "label": "PostHeader.tsx",
+      "file_type": "code",
+      "source_file": "src/components/posts/PostHeader.tsx",
+      "source_location": "L1",
+      "id": "src_components_posts_postheader_tsx",
+      "community": 1,
+      "norm_label": "postheader.tsx"
+    },
+    {
+      "label": "handlePostDelete()",
+      "file_type": "code",
+      "source_file": "src/components/posts/PostHeader.tsx",
+      "source_location": "L21",
+      "id": "posts_postheader_handlepostdelete",
+      "community": 1,
+      "norm_label": "handlepostdelete()"
+    },
+    {
+      "label": "PostList.tsx",
+      "file_type": "code",
+      "source_file": "src/components/posts/PostList.tsx",
+      "source_location": "L1",
+      "id": "src_components_posts_postlist_tsx",
+      "community": 7,
+      "norm_label": "postlist.tsx"
+    },
+    {
+      "label": "PostList()",
+      "file_type": "code",
+      "source_file": "src/components/posts/PostList.tsx",
+      "source_location": "L3",
+      "id": "posts_postlist_postlist",
+      "community": 7,
+      "norm_label": "postlist()"
+    },
+    {
+      "label": "MyPosts.tsx",
+      "file_type": "code",
+      "source_file": "src/components/profile/MyPosts.tsx",
+      "source_location": "L1",
+      "id": "src_components_profile_myposts_tsx",
+      "community": 2,
+      "norm_label": "myposts.tsx"
+    },
+    {
+      "label": "MyPosts()",
+      "file_type": "code",
+      "source_file": "src/components/profile/MyPosts.tsx",
+      "source_location": "L4",
+      "id": "profile_myposts_myposts",
+      "community": 2,
+      "norm_label": "myposts()"
+    },
+    {
+      "label": "ProfileImage.tsx",
+      "file_type": "code",
+      "source_file": "src/components/profile/ProfileImage.tsx",
+      "source_location": "L1",
+      "id": "src_components_profile_profileimage_tsx",
+      "community": 2,
+      "norm_label": "profileimage.tsx"
+    },
+    {
+      "label": "handleImageUpload()",
+      "file_type": "code",
+      "source_file": "src/components/profile/ProfileImage.tsx",
+      "source_location": "L15",
+      "id": "profile_profileimage_handleimageupload",
+      "community": 2,
+      "norm_label": "handleimageupload()"
+    },
+    {
+      "label": "updateImageDisplay()",
+      "file_type": "code",
+      "source_file": "src/components/profile/ProfileImage.tsx",
+      "source_location": "L22",
+      "id": "profile_profileimage_updateimagedisplay",
+      "community": 2,
+      "norm_label": "updateimagedisplay()"
+    },
+    {
+      "label": "ProfileInfo.tsx",
+      "file_type": "code",
+      "source_file": "src/components/profile/ProfileInfo.tsx",
+      "source_location": "L1",
+      "id": "src_components_profile_profileinfo_tsx",
+      "community": 2,
+      "norm_label": "profileinfo.tsx"
+    },
+    {
+      "label": "handleProfileUpdate()",
+      "file_type": "code",
+      "source_file": "src/components/profile/ProfileInfo.tsx",
+      "source_location": "L20",
+      "id": "profile_profileinfo_handleprofileupdate",
+      "community": 2,
+      "norm_label": "handleprofileupdate()"
+    },
+    {
+      "label": "index.ts",
+      "file_type": "code",
+      "source_file": "src/context/index.ts",
+      "source_location": "L1",
+      "id": "src_context_index_ts",
+      "community": 18,
+      "norm_label": "index.ts"
+    },
+    {
+      "label": "useAuth.ts",
+      "file_type": "code",
+      "source_file": "src/hooks/useAuth.ts",
+      "source_location": "L1",
+      "id": "src_hooks_useauth_ts",
+      "community": 0,
+      "norm_label": "useauth.ts"
+    },
+    {
+      "label": "useAuth()",
+      "file_type": "code",
+      "source_file": "src/hooks/useAuth.ts",
+      "source_location": "L4",
+      "id": "hooks_useauth_useauth",
+      "community": 0,
+      "norm_label": "useauth()"
+    },
+    {
+      "label": "useAxios.ts",
+      "file_type": "code",
+      "source_file": "src/hooks/useAxios.ts",
+      "source_location": "L1",
+      "id": "src_hooks_useaxios_ts",
+      "community": 0,
+      "norm_label": "useaxios.ts"
+    },
+    {
+      "label": "useAxios()",
+      "file_type": "code",
+      "source_file": "src/hooks/useAxios.ts",
+      "source_location": "L6",
+      "id": "hooks_useaxios_useaxios",
+      "community": 1,
+      "norm_label": "useaxios()"
+    },
+    {
+      "label": "usePost.ts",
+      "file_type": "code",
+      "source_file": "src/hooks/usePost.ts",
+      "source_location": "L1",
+      "id": "src_hooks_usepost_ts",
+      "community": 1,
+      "norm_label": "usepost.ts"
+    },
+    {
+      "label": "usePost()",
+      "file_type": "code",
+      "source_file": "src/hooks/usePost.ts",
+      "source_location": "L4",
+      "id": "hooks_usepost_usepost",
+      "community": 1,
+      "norm_label": "usepost()"
+    },
+    {
+      "label": "useProfile.ts",
+      "file_type": "code",
+      "source_file": "src/hooks/useProfile.ts",
+      "source_location": "L1",
+      "id": "src_hooks_useprofile_ts",
+      "community": 2,
+      "norm_label": "useprofile.ts"
+    },
+    {
+      "label": "useProfile()",
+      "file_type": "code",
+      "source_file": "src/hooks/useProfile.ts",
+      "source_location": "L5",
+      "id": "hooks_useprofile_useprofile",
+      "community": 2,
+      "norm_label": "useprofile()"
+    },
+    {
+      "label": "ErrorPage.tsx",
+      "file_type": "code",
+      "source_file": "src/pages/ErrorPage.tsx",
+      "source_location": "L1",
+      "id": "src_pages_errorpage_tsx",
+      "community": 5,
+      "norm_label": "errorpage.tsx"
+    },
+    {
+      "label": "ErrorPage()",
+      "file_type": "code",
+      "source_file": "src/pages/ErrorPage.tsx",
+      "source_location": "L3",
+      "id": "pages_errorpage_errorpage",
+      "community": 5,
+      "norm_label": "errorpage()"
+    },
+    {
+      "label": "HomePage.tsx",
+      "file_type": "code",
+      "source_file": "src/pages/HomePage.tsx",
+      "source_location": "L1",
+      "id": "src_pages_homepage_tsx",
+      "community": 1,
+      "norm_label": "homepage.tsx"
+    },
+    {
+      "label": "HomePage()",
+      "file_type": "code",
+      "source_file": "src/pages/HomePage.tsx",
+      "source_location": "L9",
+      "id": "pages_homepage_homepage",
+      "community": 1,
+      "norm_label": "homepage()"
+    },
+    {
+      "label": "LoginPage.tsx",
+      "file_type": "code",
+      "source_file": "src/pages/LoginPage.tsx",
+      "source_location": "L1",
+      "id": "src_pages_loginpage_tsx",
+      "community": 0,
+      "norm_label": "loginpage.tsx"
+    },
+    {
+      "label": "ProfilePage.tsx",
+      "file_type": "code",
+      "source_file": "src/pages/ProfilePage.tsx",
+      "source_location": "L1",
+      "id": "src_pages_profilepage_tsx",
+      "community": 2,
+      "norm_label": "profilepage.tsx"
+    },
+    {
+      "label": "ProfilePage()",
+      "file_type": "code",
+      "source_file": "src/pages/ProfilePage.tsx",
+      "source_location": "L9",
+      "id": "pages_profilepage_profilepage",
+      "community": 2,
+      "norm_label": "profilepage()"
+    },
+    {
+      "label": "RegistrationPage.tsx",
+      "file_type": "code",
+      "source_file": "src/pages/RegistrationPage.tsx",
+      "source_location": "L1",
+      "id": "src_pages_registrationpage_tsx",
+      "community": 5,
+      "norm_label": "registrationpage.tsx"
+    },
+    {
+      "label": "AuthProvider.tsx",
+      "file_type": "code",
+      "source_file": "src/providers/AuthProvider.tsx",
+      "source_location": "L1",
+      "id": "src_providers_authprovider_tsx",
+      "community": 5,
+      "norm_label": "authprovider.tsx"
+    },
+    {
+      "label": "PostProvider.tsx",
+      "file_type": "code",
+      "source_file": "src/providers/PostProvider.tsx",
+      "source_location": "L1",
+      "id": "src_providers_postprovider_tsx",
+      "community": 10,
+      "norm_label": "postprovider.tsx"
+    },
+    {
+      "label": "ProfileProvider.tsx",
+      "file_type": "code",
+      "source_file": "src/providers/ProfileProvider.tsx",
+      "source_location": "L1",
+      "id": "src_providers_profileprovider_tsx",
+      "community": 9,
+      "norm_label": "profileprovider.tsx"
+    },
+    {
+      "label": "PostReducer.ts",
+      "file_type": "code",
+      "source_file": "src/reducers/PostReducer.ts",
+      "source_location": "L1",
+      "id": "src_reducers_postreducer_ts",
+      "community": 10,
+      "norm_label": "postreducer.ts"
+    },
+    {
+      "label": "postReducer()",
+      "file_type": "code",
+      "source_file": "src/reducers/PostReducer.ts",
+      "source_location": "L9",
+      "id": "reducers_postreducer_postreducer",
+      "community": 10,
+      "norm_label": "postreducer()"
+    },
+    {
+      "label": "ProfileReducer.ts",
+      "file_type": "code",
+      "source_file": "src/reducers/ProfileReducer.ts",
+      "source_location": "L1",
+      "id": "src_reducers_profilereducer_ts",
+      "community": 9,
+      "norm_label": "profilereducer.ts"
+    },
+    {
+      "label": "profileReducer()",
+      "file_type": "code",
+      "source_file": "src/reducers/ProfileReducer.ts",
+      "source_location": "L10",
+      "id": "reducers_profilereducer_profilereducer",
+      "community": 9,
+      "norm_label": "profilereducer()"
+    },
+    {
+      "label": "PrivateRoutes.tsx",
+      "file_type": "code",
+      "source_file": "src/routes/PrivateRoutes.tsx",
+      "source_location": "L1",
+      "id": "src_routes_privateroutes_tsx",
+      "community": 5,
+      "norm_label": "privateroutes.tsx"
+    },
+    {
+      "label": "index.ts",
+      "file_type": "code",
+      "source_file": "src/utils/index.ts",
+      "source_location": "L1",
+      "id": "src_utils_index_ts",
+      "community": 11,
+      "norm_label": "index.ts"
+    },
+    {
+      "label": "formatDateTime()",
+      "file_type": "code",
+      "source_file": "src/utils/index.ts",
+      "source_location": "L33",
+      "id": "utils_index_formatdatetime",
+      "community": 11,
+      "norm_label": "formatdatetime()"
+    },
+    {
+      "label": "Facehook Project Notes Part 2",
+      "file_type": "document",
+      "source_file": "Facehook Project part 2.txt",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "facehook_project_notes_part2",
+      "community": 4,
+      "norm_label": "facehook project notes part 2"
+    },
+    {
+      "label": "index.html Application Entry Point",
+      "file_type": "code",
+      "source_file": "index.html",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "index_html_entry",
+      "community": 8,
+      "norm_label": "index.html application entry point"
+    },
+    {
+      "label": "README - React TypeScript Vite Template",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "readme_vite_react_ts",
+      "community": 8,
+      "norm_label": "readme - react typescript vite template"
+    },
+    {
+      "label": "Vite Logo SVG",
+      "file_type": "image",
+      "source_file": "public/vite.svg",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "vite_svg_logo",
+      "community": 8,
+      "norm_label": "vite logo svg"
+    },
+    {
+      "label": "React Logo SVG",
+      "file_type": "image",
+      "source_file": "src/assets/react.svg",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "react_svg_logo",
+      "community": 8,
+      "norm_label": "react logo svg"
+    },
+    {
+      "label": "Three Dots Vertical Ellipsis Menu Icon",
+      "file_type": "image",
+      "source_file": "src/assets/icons/3dots.svg",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "icon_3dots",
+      "community": 19,
+      "norm_label": "three dots vertical ellipsis menu icon"
+    },
+    {
+      "label": "Add Photo / Image Upload Icon",
+      "file_type": "image",
+      "source_file": "src/assets/icons/addPhoto.svg",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "icon_addphoto",
+      "community": 3,
+      "norm_label": "add photo / image upload icon"
+    },
+    {
+      "label": "Camera / Profile Photo Icon",
+      "file_type": "image",
+      "source_file": "src/assets/icons/camera.svg",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "icon_camera",
+      "community": 3,
+      "norm_label": "camera / profile photo icon"
+    },
+    {
+      "label": "Checkmark / Confirmation Icon",
+      "file_type": "image",
+      "source_file": "src/assets/icons/checkicon.svg",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "icon_checkicon",
+      "community": 20,
+      "norm_label": "checkmark / confirmation icon"
+    },
+    {
+      "label": "Close / Dismiss (X) Icon",
+      "file_type": "image",
+      "source_file": "src/assets/icons/close.svg",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "icon_close",
+      "community": 21,
+      "norm_label": "close / dismiss (x) icon"
+    },
+    {
+      "label": "Comment / Chat Bubble Icon",
+      "file_type": "image",
+      "source_file": "src/assets/icons/comment.svg",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "icon_comment",
+      "community": 4,
+      "norm_label": "comment / chat bubble icon"
+    },
+    {
+      "label": "Delete / Trash Bin Icon",
+      "file_type": "image",
+      "source_file": "src/assets/icons/delete.svg",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "icon_delete",
+      "community": 3,
+      "norm_label": "delete / trash bin icon"
+    },
+    {
+      "label": "Edit / Pencil Icon",
+      "file_type": "image",
+      "source_file": "src/assets/icons/edit.svg",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "icon_edit",
+      "community": 3,
+      "norm_label": "edit / pencil icon"
+    },
+    {
+      "label": "Home Navigation Icon",
+      "file_type": "image",
+      "source_file": "src/assets/icons/home.svg",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "icon_home",
+      "community": 22,
+      "norm_label": "home navigation icon"
+    },
+    {
+      "label": "Like Filled / Thumbs Up Active State Icon",
+      "file_type": "image",
+      "source_file": "src/assets/icons/like-fill-6.svg",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "icon_like_fill",
+      "community": 3,
+      "norm_label": "like filled / thumbs up active state icon"
+    },
+    {
+      "label": "Like / Thumbs Up Outline Icon",
+      "file_type": "image",
+      "source_file": "src/assets/icons/like.svg",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "icon_like",
+      "community": 3,
+      "norm_label": "like / thumbs up outline icon"
+    },
+    {
+      "label": "Logout / Sign Out Icon",
+      "file_type": "image",
+      "source_file": "src/assets/icons/logout.svg",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "icon_logout",
+      "community": 4,
+      "norm_label": "logout / sign out icon"
+    },
+    {
+      "label": "Notification / Bell Icon",
+      "file_type": "image",
+      "source_file": "src/assets/icons/notification.svg",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "icon_notification",
+      "community": 23,
+      "norm_label": "notification / bell icon"
+    },
+    {
+      "label": "Registration / User Signup Icon",
+      "file_type": "image",
+      "source_file": "src/assets/icons/registration.svg",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "icon_registration",
+      "community": 24,
+      "norm_label": "registration / user signup icon"
+    },
+    {
+      "label": "Settings / Gear Icon",
+      "file_type": "image",
+      "source_file": "src/assets/icons/setting.svg",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "icon_setting",
+      "community": 25,
+      "norm_label": "settings / gear icon"
+    },
+    {
+      "label": "Share / Forward Arrow Icon",
+      "file_type": "image",
+      "source_file": "src/assets/icons/share.svg",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "icon_share",
+      "community": 26,
+      "norm_label": "share / forward arrow icon"
+    },
+    {
+      "label": "Time / Clock Icon",
+      "file_type": "image",
+      "source_file": "src/assets/icons/time.svg",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "icon_time",
+      "community": 27,
+      "norm_label": "time / clock icon"
+    },
+    {
+      "label": "Facehook App Logo (Learnerswith brand)",
+      "file_type": "image",
+      "source_file": "src/assets/images/logo.svg",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "logo_svg",
+      "community": 8,
+      "norm_label": "facehook app logo (learnerswith brand)"
+    },
+    {
+      "label": "Private/Protected Route Pattern",
+      "file_type": "rationale",
+      "source_file": "Facehook Project part 2.txt",
+      "source_location": "line 5",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": "rationale: Protects authenticated pages by checking auth state (auth?.user) before rendering children; redirects to /login otherwise. All providers should wrap PrivateRoutes.",
+      "id": "concept_private_route",
+      "community": 4,
+      "norm_label": "private/protected route pattern"
+    },
+    {
+      "label": "AuthContext and AuthContextType",
+      "file_type": "rationale",
+      "source_file": "Facehook Project part 2.txt",
+      "source_location": "line 158",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": "rationale: createContext must be typed with AuthContextType|null so TypeScript can enforce correct property access (authToken, user) across all consumers.",
+      "id": "concept_auth_context",
+      "community": 4,
+      "norm_label": "authcontext and authcontexttype"
+    },
+    {
+      "label": "Token Storage Strategy (Access + Refresh Token)",
+      "file_type": "rationale",
+      "source_file": "Facehook Project part 2.txt",
+      "source_location": "line 105",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": "rationale: Best practice is access token in memory (React state/Zustand) and refresh token in HttpOnly cookie. localStorage is convenient for learning but vulnerable to XSS.",
+      "id": "concept_token_storage",
+      "community": 4,
+      "norm_label": "token storage strategy (access + refresh token)"
+    },
+    {
+      "label": "Axios Interceptor for JWT Auto-Refresh (useAxios hook)",
+      "file_type": "rationale",
+      "source_file": "Facehook Project part 2.txt",
+      "source_location": "line 262",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": "rationale: Request interceptor attaches Bearer token; response interceptor catches 401 errors, calls refresh-token endpoint, updates auth state, and retries original request \u2014 keeping user logged in across page sessions.",
+      "id": "concept_axios_interceptor",
+      "community": 4,
+      "norm_label": "axios interceptor for jwt auto-refresh (useaxios hook)"
+    },
+    {
+      "label": "Lazy Initializer Function for useState",
+      "file_type": "rationale",
+      "source_file": "Facehook Project part 2.txt",
+      "source_location": "line 354",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": "rationale: Pass a function to useState instead of a value to defer expensive one-time computations (e.g., JSON.parse from localStorage) until first mount, avoiding repeated cost on re-renders.",
+      "id": "concept_lazy_initializer",
+      "community": 4,
+      "norm_label": "lazy initializer function for usestate"
+    },
+    {
+      "label": "Profile State Pattern: Reducer + Context + Hook",
+      "file_type": "rationale",
+      "source_file": "Facehook Project part 2.txt",
+      "source_location": "line 375",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": "rationale: Auth context should only store authentication data. Profile data belongs in a separate ProfileContext + ProfileReducer pipeline: actions => reducers => context => providers => hooks.",
+      "id": "concept_profile_state_pattern",
+      "community": 4,
+      "norm_label": "profile state pattern: reducer + context + hook"
+    },
+    {
+      "label": "File Upload via useRef (Custom Button Trigger)",
+      "file_type": "rationale",
+      "source_file": "Facehook Project part 2.txt",
+      "source_location": "line 472",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": "rationale: File inputs cannot be controlled with useState for security reasons; useRef gives direct DOM access to trigger the file picker and read selected files. FormData is required for multipart/form-data when sending files alongside text.",
+      "id": "concept_file_upload_useref",
+      "community": 3,
+      "norm_label": "file upload via useref (custom button trigger)"
+    },
+    {
+      "label": "Like Feature via POST_LIKED Reducer Action",
+      "file_type": "rationale",
+      "source_file": "Facehook Project part 2.txt",
+      "source_location": "line 619",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": "rationale: Local useState for likes causes sync issues when a post appears in multiple places. Using a shared reducer (POST_LIKED) ensures all components rendering the same post reflect the same like state. PATCH request is used because only partial data changes.",
+      "id": "concept_like_reducer",
+      "community": 3,
+      "norm_label": "like feature via post_liked reducer action"
+    },
+    {
+      "label": "Comment Submit via Enter Key (onKeyDown)",
+      "file_type": "rationale",
+      "source_file": "Facehook Project part 2.txt",
+      "source_location": "line 700",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": "rationale: When no submit button is present, use onKeyDown with keyCode===13 to submit comment data to the API via PATCH request.",
+      "id": "concept_comment_enter_key",
+      "community": 4,
+      "norm_label": "comment submit via enter key (onkeydown)"
+    },
+    {
+      "label": "Post Creation via Reducer (POST_CREATED action)",
+      "file_type": "rationale",
+      "source_file": "Facehook Project part 2.txt",
+      "source_location": "line 746",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": "rationale: New posts are prepended to the posts array in the reducer ([action.data, ...state.posts]) so newest content appears first without additional sorting.",
+      "id": "concept_post_create_reducer",
+      "community": 3,
+      "norm_label": "post creation via reducer (post_created action)"
+    },
+    {
+      "label": "Delete Comment Feature (POST_COMMENT_DELETED action)",
+      "file_type": "rationale",
+      "source_file": "Facehook Project part 2.txt",
+      "source_location": "line 843",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": "rationale: Only show delete button when comment.author.id === auth.user.id. Dispatch POST_COMMENT_DELETED after successful API DELETE to filter comment from the shared posts state.",
+      "id": "concept_delete_comment",
+      "community": 3,
+      "norm_label": "delete comment feature (post_comment_deleted action)"
+    },
+    {
+      "label": "useDebugValue Performance Optimization",
+      "file_type": "rationale",
+      "source_file": "Facehook Project part 2.txt",
+      "source_location": "line 223",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": "rationale: useDebugValue is purely for React DevTools visibility. The formatter function (second argument) runs lazily \u2014 only when DevTools is open \u2014 avoiding unnecessary computation on every render.",
+      "id": "concept_usedebugvalue",
+      "community": 28,
+      "norm_label": "usedebugvalue performance optimization"
+    },
+    {
+      "label": "Auth Illustration - Social Media 3D Graphic",
+      "file_type": "image",
+      "source_file": "src/assets/images/auth_illustration.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "auth_illustration_social_media_3d",
+      "community": 6,
+      "norm_label": "auth illustration - social media 3d graphic"
+    },
+    {
+      "label": "Poster - Bangla Social Media Advertisement",
+      "file_type": "image",
+      "source_file": "src/assets/images/poster.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "poster_bangla_social_media_ad",
+      "community": 6,
+      "norm_label": "poster - bangla social media advertisement"
+    },
+    {
+      "label": "Avatar 1 - Male User Profile Photo (Green Background)",
+      "file_type": "image",
+      "source_file": "src/assets/images/avatars/avatar_1.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "avatar_1_user_profile_photo",
+      "community": 6,
+      "norm_label": "avatar 1 - male user profile photo (green background)"
+    },
+    {
+      "label": "Avatar 2 - Male User Profile Photo (Yellow Background)",
+      "file_type": "image",
+      "source_file": "src/assets/images/avatars/avatar_2.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "avatar_2_user_profile_photo",
+      "community": 6,
+      "norm_label": "avatar 2 - male user profile photo (yellow background)"
+    },
+    {
+      "label": "Social Media Engagement (Likes, Hearts, Megaphone)",
+      "file_type": "rationale",
+      "source_file": "src/assets/images/auth_illustration.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "concept_social_media_engagement",
+      "community": 6,
+      "norm_label": "social media engagement (likes, hearts, megaphone)"
+    },
+    {
+      "label": "User Authentication UI Context",
+      "file_type": "rationale",
+      "source_file": "src/assets/images/auth_illustration.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "concept_user_authentication_ui",
+      "community": 6,
+      "norm_label": "user authentication ui context"
+    },
+    {
+      "label": "Default Avatar Set for User Profiles",
+      "file_type": "rationale",
+      "source_file": "src/assets/images/avatars/avatar_1.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "concept_default_avatar_set",
+      "community": 6,
+      "norm_label": "default avatar set for user profiles"
+    }
+  ],
+  "links": [
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main.tsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "src_main_tsx",
+      "target": "src_pages_errorpage_tsx",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main.tsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "src_main_tsx",
+      "target": "src_pages_homepage_tsx",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main.tsx",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "src_main_tsx",
+      "target": "src_pages_loginpage_tsx",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main.tsx",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "src_main_tsx",
+      "target": "src_pages_profilepage_tsx",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main.tsx",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "src_main_tsx",
+      "target": "src_pages_registrationpage_tsx",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main.tsx",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "src_main_tsx",
+      "target": "src_providers_authprovider_tsx",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main.tsx",
+      "source_location": "L11",
+      "weight": 1.0,
+      "source": "src_main_tsx",
+      "target": "src_routes_privateroutes_tsx",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/auth/LoginForm.tsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "src_components_auth_loginform_tsx",
+      "target": "hooks_useauth_useauth",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/auth/LoginForm.tsx",
+      "source_location": "L12",
+      "weight": 1.0,
+      "source": "src_components_auth_loginform_tsx",
+      "target": "auth_loginform_loginform",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/LoginPage.tsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "src_pages_loginpage_tsx",
+      "target": "auth_loginform_loginform",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "src/components/auth/LoginForm.tsx",
+      "source_location": "L14",
+      "weight": 1.0,
+      "source": "auth_loginform_loginform",
+      "target": "hooks_useauth_useauth"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/auth/Logout.tsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "src_components_auth_logout_tsx",
+      "target": "hooks_useauth_useauth",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/auth/Logout.tsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "src_components_auth_logout_tsx",
+      "target": "auth_logout_logout",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/common/Header.tsx",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "src_components_common_header_tsx",
+      "target": "auth_logout_logout",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "src/components/auth/Logout.tsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "auth_logout_logout",
+      "target": "hooks_useauth_useauth"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/auth/RegistrationForm.tsx",
+      "source_location": "L13",
+      "weight": 1.0,
+      "source": "src_components_auth_registrationform_tsx",
+      "target": "auth_registrationform_registrationform",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/RegistrationPage.tsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "src_pages_registrationpage_tsx",
+      "target": "auth_registrationform_registrationform",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/common/Header.tsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "src_components_common_header_tsx",
+      "target": "hooks_useauth_useauth",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/common/Header.tsx",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "src_components_common_header_tsx",
+      "target": "hooks_useprofile_useprofile",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/posts/CreatePost.tsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "src_components_posts_createpost_tsx",
+      "target": "hooks_useauth_useauth",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/posts/CreatePost.tsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "src_components_posts_createpost_tsx",
+      "target": "hooks_useaxios_useaxios",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/posts/CreatePost.tsx",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "src_components_posts_createpost_tsx",
+      "target": "hooks_usepost_usepost",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/posts/CreatePost.tsx",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "src_components_posts_createpost_tsx",
+      "target": "hooks_useprofile_useprofile",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/posts/CreatePost.tsx",
+      "source_location": "L27",
+      "weight": 1.0,
+      "source": "src_components_posts_createpost_tsx",
+      "target": "posts_createpost_handleimagechange",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/posts/CreatePost.tsx",
+      "source_location": "L35",
+      "weight": 1.0,
+      "source": "src_components_posts_createpost_tsx",
+      "target": "posts_createpost_handlepostsubmit",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/posts/NewPost.tsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "src_components_posts_newpost_tsx",
+      "target": "hooks_useauth_useauth",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/posts/NewPost.tsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "src_components_posts_newpost_tsx",
+      "target": "hooks_useprofile_useprofile",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/posts/PostAction.tsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "src_components_posts_postaction_tsx",
+      "target": "hooks_useauth_useauth",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/posts/PostAction.tsx",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "src_components_posts_postaction_tsx",
+      "target": "hooks_useaxios_useaxios",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/posts/PostAction.tsx",
+      "source_location": "L14",
+      "weight": 1.0,
+      "source": "src_components_posts_postaction_tsx",
+      "target": "posts_postaction_handlelike",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/posts/PostBody.tsx",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "src_components_posts_postbody_tsx",
+      "target": "posts_postbody_postbody",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/posts/PostCard.tsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "src_components_posts_postcard_tsx",
+      "target": "posts_postbody_postbody",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/posts/PostCard.tsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "src_components_posts_postcard_tsx",
+      "target": "posts_postcard_postcard",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/posts/PostList.tsx",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "src_components_posts_postlist_tsx",
+      "target": "posts_postcard_postcard",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/posts/PostComments.tsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "src_components_posts_postcomments_tsx",
+      "target": "hooks_useauth_useauth",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/posts/PostComments.tsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "src_components_posts_postcomments_tsx",
+      "target": "hooks_useaxios_useaxios",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/posts/PostComments.tsx",
+      "source_location": "L13",
+      "weight": 1.0,
+      "source": "src_components_posts_postcomments_tsx",
+      "target": "posts_postcomments_handlecomment",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/posts/PostCommentsList.tsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "src_components_posts_postcommentslist_tsx",
+      "target": "hooks_useauth_useauth",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/posts/PostCommentsList.tsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "src_components_posts_postcommentslist_tsx",
+      "target": "posts_postcommentslist_handlecommentdelete",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/posts/PostHeader.tsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "src_components_posts_postheader_tsx",
+      "target": "hooks_useauth_useauth",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/posts/PostHeader.tsx",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "src_components_posts_postheader_tsx",
+      "target": "hooks_useaxios_useaxios",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/posts/PostHeader.tsx",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "src_components_posts_postheader_tsx",
+      "target": "hooks_usepost_usepost",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/posts/PostHeader.tsx",
+      "source_location": "L21",
+      "weight": 1.0,
+      "source": "src_components_posts_postheader_tsx",
+      "target": "posts_postheader_handlepostdelete",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/posts/PostList.tsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "src_components_posts_postlist_tsx",
+      "target": "posts_postlist_postlist",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/profile/MyPosts.tsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "src_components_profile_myposts_tsx",
+      "target": "posts_postlist_postlist",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/HomePage.tsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "src_pages_homepage_tsx",
+      "target": "posts_postlist_postlist",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/profile/MyPosts.tsx",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "src_components_profile_myposts_tsx",
+      "target": "hooks_useprofile_useprofile",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/profile/MyPosts.tsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "src_components_profile_myposts_tsx",
+      "target": "profile_myposts_myposts",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/ProfilePage.tsx",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "src_pages_profilepage_tsx",
+      "target": "profile_myposts_myposts",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "src/components/profile/MyPosts.tsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "profile_myposts_myposts",
+      "target": "hooks_useprofile_useprofile"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/profile/ProfileImage.tsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "src_components_profile_profileimage_tsx",
+      "target": "hooks_useaxios_useaxios",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/profile/ProfileImage.tsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "src_components_profile_profileimage_tsx",
+      "target": "hooks_useprofile_useprofile",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/profile/ProfileImage.tsx",
+      "source_location": "L15",
+      "weight": 1.0,
+      "source": "src_components_profile_profileimage_tsx",
+      "target": "profile_profileimage_handleimageupload",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/profile/ProfileImage.tsx",
+      "source_location": "L22",
+      "weight": 1.0,
+      "source": "src_components_profile_profileimage_tsx",
+      "target": "profile_profileimage_updateimagedisplay",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/profile/ProfileInfo.tsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "src_components_profile_profileinfo_tsx",
+      "target": "hooks_useaxios_useaxios",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/profile/ProfileInfo.tsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "src_components_profile_profileinfo_tsx",
+      "target": "hooks_useprofile_useprofile",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/profile/ProfileInfo.tsx",
+      "source_location": "L20",
+      "weight": 1.0,
+      "source": "src_components_profile_profileinfo_tsx",
+      "target": "profile_profileinfo_handleprofileupdate",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/hooks/useAuth.ts",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "src_hooks_useauth_ts",
+      "target": "hooks_useauth_useauth",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/hooks/useAxios.ts",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "src_hooks_useaxios_ts",
+      "target": "hooks_useauth_useauth",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/ProfilePage.tsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "src_pages_profilepage_tsx",
+      "target": "hooks_useauth_useauth",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/routes/PrivateRoutes.tsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "src_routes_privateroutes_tsx",
+      "target": "hooks_useauth_useauth",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "src/hooks/useAxios.ts",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "hooks_useaxios_useaxios",
+      "target": "hooks_useauth_useauth"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "src/pages/ProfilePage.tsx",
+      "source_location": "L16",
+      "weight": 1.0,
+      "source": "pages_profilepage_profilepage",
+      "target": "hooks_useauth_useauth"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/hooks/useAxios.ts",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "src_hooks_useaxios_ts",
+      "target": "hooks_useaxios_useaxios",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/HomePage.tsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "src_pages_homepage_tsx",
+      "target": "hooks_useaxios_useaxios",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/ProfilePage.tsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "src_pages_profilepage_tsx",
+      "target": "hooks_useaxios_useaxios",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "src/pages/HomePage.tsx",
+      "source_location": "L11",
+      "weight": 1.0,
+      "source": "pages_homepage_homepage",
+      "target": "hooks_useaxios_useaxios"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "src/pages/ProfilePage.tsx",
+      "source_location": "L15",
+      "weight": 1.0,
+      "source": "pages_profilepage_profilepage",
+      "target": "hooks_useaxios_useaxios"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/hooks/usePost.ts",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "src_hooks_usepost_ts",
+      "target": "hooks_usepost_usepost",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/HomePage.tsx",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "src_pages_homepage_tsx",
+      "target": "hooks_usepost_usepost",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "src/pages/HomePage.tsx",
+      "source_location": "L12",
+      "weight": 1.0,
+      "source": "pages_homepage_homepage",
+      "target": "hooks_usepost_usepost"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/hooks/useProfile.ts",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "src_hooks_useprofile_ts",
+      "target": "hooks_useprofile_useprofile",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/ProfilePage.tsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "src_pages_profilepage_tsx",
+      "target": "hooks_useprofile_useprofile",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "src/pages/ProfilePage.tsx",
+      "source_location": "L17",
+      "weight": 1.0,
+      "source": "pages_profilepage_profilepage",
+      "target": "hooks_useprofile_useprofile"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/ErrorPage.tsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "src_pages_errorpage_tsx",
+      "target": "pages_errorpage_errorpage",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/HomePage.tsx",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "src_pages_homepage_tsx",
+      "target": "pages_homepage_homepage",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/ProfilePage.tsx",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "src_pages_profilepage_tsx",
+      "target": "pages_profilepage_profilepage",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/providers/PostProvider.tsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "src_providers_postprovider_tsx",
+      "target": "reducers_postreducer_postreducer",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/providers/ProfileProvider.tsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "src_providers_profileprovider_tsx",
+      "target": "reducers_profilereducer_profilereducer",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/reducers/PostReducer.ts",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "src_reducers_postreducer_ts",
+      "target": "reducers_postreducer_postreducer",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/reducers/ProfileReducer.ts",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "src_reducers_profilereducer_ts",
+      "target": "reducers_profilereducer_profilereducer",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/utils/index.ts",
+      "source_location": "L33",
+      "weight": 1.0,
+      "source": "src_utils_index_ts",
+      "target": "utils_index_formatdatetime",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "Facehook Project part 2.txt",
+      "source_location": "line 5",
+      "weight": 1.0,
+      "source": "facehook_project_notes_part2",
+      "target": "concept_private_route"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "Facehook Project part 2.txt",
+      "source_location": "line 105",
+      "weight": 1.0,
+      "source": "facehook_project_notes_part2",
+      "target": "concept_token_storage"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "Facehook Project part 2.txt",
+      "source_location": "line 262",
+      "weight": 1.0,
+      "source": "facehook_project_notes_part2",
+      "target": "concept_axios_interceptor"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "Facehook Project part 2.txt",
+      "source_location": "line 375",
+      "weight": 1.0,
+      "source": "facehook_project_notes_part2",
+      "target": "concept_profile_state_pattern"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "Facehook Project part 2.txt",
+      "source_location": "line 619",
+      "weight": 1.0,
+      "source": "facehook_project_notes_part2",
+      "target": "concept_like_reducer"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "Facehook Project part 2.txt",
+      "source_location": "line 700",
+      "weight": 1.0,
+      "source": "facehook_project_notes_part2",
+      "target": "concept_comment_enter_key"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "Facehook Project part 2.txt",
+      "source_location": "line 746",
+      "weight": 1.0,
+      "source": "facehook_project_notes_part2",
+      "target": "concept_post_create_reducer"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "Facehook Project part 2.txt",
+      "source_location": "line 843",
+      "weight": 1.0,
+      "source": "facehook_project_notes_part2",
+      "target": "concept_delete_comment"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "index.html",
+      "source_location": "line 5",
+      "weight": 1.0,
+      "source": "index_html_entry",
+      "target": "vite_svg_logo"
+    },
+    {
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.75,
+      "source_file": "src/assets/images/logo.svg",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "logo_svg",
+      "target": "index_html_entry"
+    },
+    {
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.75,
+      "source_file": "README.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "readme_vite_react_ts",
+      "target": "vite_svg_logo"
+    },
+    {
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.75,
+      "source_file": "README.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "readme_vite_react_ts",
+      "target": "react_svg_logo"
+    },
+    {
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "Facehook Project part 2.txt",
+      "source_location": "line 472",
+      "weight": 1.0,
+      "source": "concept_file_upload_useref",
+      "target": "icon_addphoto"
+    },
+    {
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.75,
+      "source_file": "Facehook Project part 2.txt",
+      "source_location": "line 746",
+      "weight": 1.0,
+      "source": "concept_post_create_reducer",
+      "target": "icon_addphoto"
+    },
+    {
+      "relation": "semantically_similar_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "src/assets/icons/camera.svg",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "icon_camera",
+      "target": "icon_addphoto"
+    },
+    {
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "Facehook Project part 2.txt",
+      "source_location": "line 472",
+      "weight": 1.0,
+      "source": "concept_file_upload_useref",
+      "target": "icon_camera"
+    },
+    {
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "Facehook Project part 2.txt",
+      "source_location": "line 700",
+      "weight": 1.0,
+      "source": "concept_comment_enter_key",
+      "target": "icon_comment"
+    },
+    {
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "Facehook Project part 2.txt",
+      "source_location": "line 843",
+      "weight": 1.0,
+      "source": "concept_delete_comment",
+      "target": "icon_delete"
+    },
+    {
+      "relation": "semantically_similar_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.75,
+      "source_file": "src/assets/icons/delete.svg",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "icon_delete",
+      "target": "icon_edit"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "Facehook Project part 2.txt",
+      "source_location": "line 479",
+      "weight": 1.0,
+      "source": "concept_file_upload_useref",
+      "target": "icon_edit"
+    },
+    {
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "Facehook Project part 2.txt",
+      "source_location": "line 619",
+      "weight": 1.0,
+      "source": "concept_like_reducer",
+      "target": "icon_like_fill"
+    },
+    {
+      "relation": "semantically_similar_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "src/assets/icons/like.svg",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "icon_like",
+      "target": "icon_like_fill"
+    },
+    {
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "Facehook Project part 2.txt",
+      "source_location": "line 619",
+      "weight": 1.0,
+      "source": "concept_like_reducer",
+      "target": "icon_like"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "Facehook Project part 2.txt",
+      "source_location": "line 77",
+      "weight": 1.0,
+      "source": "concept_private_route",
+      "target": "icon_logout"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "Facehook Project part 2.txt",
+      "source_location": "line 15",
+      "weight": 1.0,
+      "source": "concept_private_route",
+      "target": "concept_auth_context"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "Facehook Project part 2.txt",
+      "source_location": "line 283",
+      "weight": 1.0,
+      "source": "concept_axios_interceptor",
+      "target": "concept_auth_context"
+    },
+    {
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "Facehook Project part 2.txt",
+      "source_location": "line 105",
+      "weight": 1.0,
+      "source": "concept_token_storage",
+      "target": "concept_auth_context"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "Facehook Project part 2.txt",
+      "source_location": "line 360",
+      "weight": 1.0,
+      "source": "concept_lazy_initializer",
+      "target": "concept_auth_context"
+    },
+    {
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "Facehook Project part 2.txt",
+      "source_location": "line 379",
+      "weight": 1.0,
+      "source": "concept_profile_state_pattern",
+      "target": "concept_auth_context"
+    },
+    {
+      "relation": "implements",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "Facehook Project part 2.txt",
+      "source_location": "line 262",
+      "weight": 1.0,
+      "source": "concept_axios_interceptor",
+      "target": "concept_token_storage"
+    },
+    {
+      "relation": "semantically_similar_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "Facehook Project part 2.txt",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "concept_post_create_reducer",
+      "target": "concept_like_reducer"
+    },
+    {
+      "relation": "semantically_similar_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.75,
+      "source_file": "Facehook Project part 2.txt",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "concept_delete_comment",
+      "target": "concept_like_reducer"
+    },
+    {
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/assets/images/auth_illustration.png",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "auth_illustration_social_media_3d",
+      "target": "concept_social_media_engagement"
+    },
+    {
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "src/assets/images/auth_illustration.png",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "auth_illustration_social_media_3d",
+      "target": "concept_user_authentication_ui"
+    },
+    {
+      "relation": "semantically_similar_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.65,
+      "source_file": "src/assets/images/auth_illustration.png",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "auth_illustration_social_media_3d",
+      "target": "poster_bangla_social_media_ad"
+    },
+    {
+      "relation": "semantically_similar_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.75,
+      "source_file": "src/assets/images/poster.png",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "poster_bangla_social_media_ad",
+      "target": "concept_social_media_engagement"
+    },
+    {
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "src/assets/images/avatars/avatar_1.png",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "avatar_1_user_profile_photo",
+      "target": "concept_default_avatar_set"
+    },
+    {
+      "relation": "semantically_similar_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "src/assets/images/avatars/avatar_1.png",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "avatar_1_user_profile_photo",
+      "target": "avatar_2_user_profile_photo"
+    },
+    {
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "src/assets/images/avatars/avatar_2.png",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "avatar_2_user_profile_photo",
+      "target": "concept_default_avatar_set"
+    },
+    {
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.75,
+      "source_file": "src/assets/images/avatars/avatar_1.png",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "concept_default_avatar_set",
+      "target": "concept_user_authentication_ui"
+    }
+  ],
+  "hyperedges": [
+    {
+      "id": "post_interaction_icons",
+      "label": "Post Social Interaction Icons (Like, Comment, Share)",
+      "nodes": [
+        "icon_like",
+        "icon_like_fill",
+        "icon_comment",
+        "icon_share"
+      ],
+      "relation": "form",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "src/assets/icons"
+    },
+    {
+      "id": "post_crud_reducers",
+      "label": "Post CRUD Operations via Reducer Actions",
+      "nodes": [
+        "concept_post_create_reducer",
+        "concept_like_reducer",
+        "concept_delete_comment"
+      ],
+      "relation": "implement",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "Facehook Project part 2.txt"
+    },
+    {
+      "id": "auth_token_flow",
+      "label": "Authentication Token Management Flow",
+      "nodes": [
+        "concept_auth_context",
+        "concept_token_storage",
+        "concept_axios_interceptor"
+      ],
+      "relation": "participate_in",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "Facehook Project part 2.txt"
+    },
+    {
+      "id": "social_media_app_visual_identity",
+      "label": "Social Media App Visual Identity Assets",
+      "nodes": [
+        "auth_illustration_social_media_3d",
+        "avatar_1_user_profile_photo",
+        "avatar_2_user_profile_photo"
+      ],
+      "relation": "form",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "src/assets/images/auth_illustration.png"
+    },
+    {
+      "id": "user_onboarding_ui_assets",
+      "label": "User Onboarding and Authentication UI Assets",
+      "nodes": [
+        "auth_illustration_social_media_3d",
+        "concept_user_authentication_ui",
+        "concept_default_avatar_set"
+      ],
+      "relation": "participate_in",
+      "confidence": "INFERRED",
+      "confidence_score": 0.75,
+      "source_file": "src/assets/images/auth_illustration.png"
+    },
+    {
+      "id": "social_engagement_visual_theme",
+      "label": "Social Engagement Visual Theme Across Assets",
+      "nodes": [
+        "auth_illustration_social_media_3d",
+        "poster_bangla_social_media_ad",
+        "concept_social_media_engagement"
+      ],
+      "relation": "implement",
+      "confidence": "INFERRED",
+      "confidence_score": 0.65,
+      "source_file": "src/assets/images/poster.png"
+    }
+  ],
+  "built_at_commit": "4849c03d882d3da10ce374d98d1538e1cabc2d19"
+}

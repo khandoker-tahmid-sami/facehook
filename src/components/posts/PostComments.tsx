@@ -62,7 +62,7 @@ export const PostComments = ({ post }) => {
             >
               All Comment ▾
             </button>
-            {showComments && <PostCommentsList postComments={comments} />}
+            {showComments && <PostCommentsList post={post} postComments={comments} setComments={setComments}/>}
           </>
         ) : (
           <p className="text-center text-gray-400 text-sm">No comments</p>

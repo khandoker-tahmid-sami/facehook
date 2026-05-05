@@ -1,0 +1,206 @@
+{
+  "nodes": [
+    {
+      "id": "auth_illustration_social_media_3d",
+      "label": "Auth Illustration - Social Media 3D Graphic",
+      "file_type": "image",
+      "source_file": "src/assets/images/auth_illustration.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "poster_bangla_social_media_ad",
+      "label": "Poster - Bangla Social Media Advertisement",
+      "file_type": "image",
+      "source_file": "src/assets/images/poster.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "avatar_1_user_profile_photo",
+      "label": "Avatar 1 - Male User Profile Photo (Green Background)",
+      "file_type": "image",
+      "source_file": "src/assets/images/avatars/avatar_1.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "avatar_2_user_profile_photo",
+      "label": "Avatar 2 - Male User Profile Photo (Yellow Background)",
+      "file_type": "image",
+      "source_file": "src/assets/images/avatars/avatar_2.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "concept_social_media_engagement",
+      "label": "Social Media Engagement (Likes, Hearts, Megaphone)",
+      "file_type": "rationale",
+      "source_file": "src/assets/images/auth_illustration.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "concept_user_authentication_ui",
+      "label": "User Authentication UI Context",
+      "file_type": "rationale",
+      "source_file": "src/assets/images/auth_illustration.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "concept_default_avatar_set",
+      "label": "Default Avatar Set for User Profiles",
+      "file_type": "rationale",
+      "source_file": "src/assets/images/avatars/avatar_1.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    }
+  ],
+  "edges": [
+    {
+      "source": "auth_illustration_social_media_3d",
+      "target": "concept_social_media_engagement",
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/assets/images/auth_illustration.png",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "auth_illustration_social_media_3d",
+      "target": "concept_user_authentication_ui",
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "src/assets/images/auth_illustration.png",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "avatar_1_user_profile_photo",
+      "target": "concept_default_avatar_set",
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "src/assets/images/avatars/avatar_1.png",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "avatar_2_user_profile_photo",
+      "target": "concept_default_avatar_set",
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "src/assets/images/avatars/avatar_2.png",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "avatar_1_user_profile_photo",
+      "target": "avatar_2_user_profile_photo",
+      "relation": "semantically_similar_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "src/assets/images/avatars/avatar_1.png",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "poster_bangla_social_media_ad",
+      "target": "concept_social_media_engagement",
+      "relation": "semantically_similar_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.75,
+      "source_file": "src/assets/images/poster.png",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "auth_illustration_social_media_3d",
+      "target": "poster_bangla_social_media_ad",
+      "relation": "semantically_similar_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.65,
+      "source_file": "src/assets/images/auth_illustration.png",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "concept_default_avatar_set",
+      "target": "concept_user_authentication_ui",
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.75,
+      "source_file": "src/assets/images/avatars/avatar_1.png",
+      "source_location": null,
+      "weight": 1.0
+    }
+  ],
+  "hyperedges": [
+    {
+      "id": "social_media_app_visual_identity",
+      "label": "Social Media App Visual Identity Assets",
+      "nodes": [
+        "auth_illustration_social_media_3d",
+        "avatar_1_user_profile_photo",
+        "avatar_2_user_profile_photo"
+      ],
+      "relation": "form",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "src/assets/images/auth_illustration.png"
+    },
+    {
+      "id": "user_onboarding_ui_assets",
+      "label": "User Onboarding and Authentication UI Assets",
+      "nodes": [
+        "auth_illustration_social_media_3d",
+        "concept_user_authentication_ui",
+        "concept_default_avatar_set"
+      ],
+      "relation": "participate_in",
+      "confidence": "INFERRED",
+      "confidence_score": 0.75,
+      "source_file": "src/assets/images/auth_illustration.png"
+    },
+    {
+      "id": "social_engagement_visual_theme",
+      "label": "Social Engagement Visual Theme Across Assets",
+      "nodes": [
+        "auth_illustration_social_media_3d",
+        "poster_bangla_social_media_ad",
+        "concept_social_media_engagement"
+      ],
+      "relation": "implement",
+      "confidence": "INFERRED",
+      "confidence_score": 0.65,
+      "source_file": "src/assets/images/poster.png"
+    }
+  ],
+  "input_tokens": 0,
+  "output_tokens": 0
+}

@@ -1,0 +1,742 @@
+{
+  "nodes": [
+    {
+      "id": "facehook_project_notes_part2",
+      "label": "Facehook Project Notes Part 2",
+      "file_type": "document",
+      "source_file": "Facehook Project part 2.txt",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "index_html_entry",
+      "label": "index.html Application Entry Point",
+      "file_type": "code",
+      "source_file": "index.html",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "readme_vite_react_ts",
+      "label": "README - React TypeScript Vite Template",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "vite_svg_logo",
+      "label": "Vite Logo SVG",
+      "file_type": "image",
+      "source_file": "public/vite.svg",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "react_svg_logo",
+      "label": "React Logo SVG",
+      "file_type": "image",
+      "source_file": "src/assets/react.svg",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "icon_3dots",
+      "label": "Three Dots Vertical Ellipsis Menu Icon",
+      "file_type": "image",
+      "source_file": "src/assets/icons/3dots.svg",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "icon_addphoto",
+      "label": "Add Photo / Image Upload Icon",
+      "file_type": "image",
+      "source_file": "src/assets/icons/addPhoto.svg",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "icon_camera",
+      "label": "Camera / Profile Photo Icon",
+      "file_type": "image",
+      "source_file": "src/assets/icons/camera.svg",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "icon_checkicon",
+      "label": "Checkmark / Confirmation Icon",
+      "file_type": "image",
+      "source_file": "src/assets/icons/checkicon.svg",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "icon_close",
+      "label": "Close / Dismiss (X) Icon",
+      "file_type": "image",
+      "source_file": "src/assets/icons/close.svg",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "icon_comment",
+      "label": "Comment / Chat Bubble Icon",
+      "file_type": "image",
+      "source_file": "src/assets/icons/comment.svg",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "icon_delete",
+      "label": "Delete / Trash Bin Icon",
+      "file_type": "image",
+      "source_file": "src/assets/icons/delete.svg",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "icon_edit",
+      "label": "Edit / Pencil Icon",
+      "file_type": "image",
+      "source_file": "src/assets/icons/edit.svg",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "icon_home",
+      "label": "Home Navigation Icon",
+      "file_type": "image",
+      "source_file": "src/assets/icons/home.svg",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "icon_like_fill",
+      "label": "Like Filled / Thumbs Up Active State Icon",
+      "file_type": "image",
+      "source_file": "src/assets/icons/like-fill-6.svg",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "icon_like",
+      "label": "Like / Thumbs Up Outline Icon",
+      "file_type": "image",
+      "source_file": "src/assets/icons/like.svg",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "icon_logout",
+      "label": "Logout / Sign Out Icon",
+      "file_type": "image",
+      "source_file": "src/assets/icons/logout.svg",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "icon_notification",
+      "label": "Notification / Bell Icon",
+      "file_type": "image",
+      "source_file": "src/assets/icons/notification.svg",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "icon_registration",
+      "label": "Registration / User Signup Icon",
+      "file_type": "image",
+      "source_file": "src/assets/icons/registration.svg",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "icon_setting",
+      "label": "Settings / Gear Icon",
+      "file_type": "image",
+      "source_file": "src/assets/icons/setting.svg",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "icon_share",
+      "label": "Share / Forward Arrow Icon",
+      "file_type": "image",
+      "source_file": "src/assets/icons/share.svg",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "icon_time",
+      "label": "Time / Clock Icon",
+      "file_type": "image",
+      "source_file": "src/assets/icons/time.svg",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "logo_svg",
+      "label": "Facehook App Logo (Learnerswith brand)",
+      "file_type": "image",
+      "source_file": "src/assets/images/logo.svg",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "concept_private_route",
+      "label": "Private/Protected Route Pattern",
+      "file_type": "rationale",
+      "source_file": "Facehook Project part 2.txt",
+      "source_location": "line 5",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": "rationale: Protects authenticated pages by checking auth state (auth?.user) before rendering children; redirects to /login otherwise. All providers should wrap PrivateRoutes."
+    },
+    {
+      "id": "concept_auth_context",
+      "label": "AuthContext and AuthContextType",
+      "file_type": "rationale",
+      "source_file": "Facehook Project part 2.txt",
+      "source_location": "line 158",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": "rationale: createContext must be typed with AuthContextType|null so TypeScript can enforce correct property access (authToken, user) across all consumers."
+    },
+    {
+      "id": "concept_token_storage",
+      "label": "Token Storage Strategy (Access + Refresh Token)",
+      "file_type": "rationale",
+      "source_file": "Facehook Project part 2.txt",
+      "source_location": "line 105",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": "rationale: Best practice is access token in memory (React state/Zustand) and refresh token in HttpOnly cookie. localStorage is convenient for learning but vulnerable to XSS."
+    },
+    {
+      "id": "concept_axios_interceptor",
+      "label": "Axios Interceptor for JWT Auto-Refresh (useAxios hook)",
+      "file_type": "rationale",
+      "source_file": "Facehook Project part 2.txt",
+      "source_location": "line 262",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": "rationale: Request interceptor attaches Bearer token; response interceptor catches 401 errors, calls refresh-token endpoint, updates auth state, and retries original request — keeping user logged in across page sessions."
+    },
+    {
+      "id": "concept_lazy_initializer",
+      "label": "Lazy Initializer Function for useState",
+      "file_type": "rationale",
+      "source_file": "Facehook Project part 2.txt",
+      "source_location": "line 354",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": "rationale: Pass a function to useState instead of a value to defer expensive one-time computations (e.g., JSON.parse from localStorage) until first mount, avoiding repeated cost on re-renders."
+    },
+    {
+      "id": "concept_profile_state_pattern",
+      "label": "Profile State Pattern: Reducer + Context + Hook",
+      "file_type": "rationale",
+      "source_file": "Facehook Project part 2.txt",
+      "source_location": "line 375",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": "rationale: Auth context should only store authentication data. Profile data belongs in a separate ProfileContext + ProfileReducer pipeline: actions => reducers => context => providers => hooks."
+    },
+    {
+      "id": "concept_file_upload_useref",
+      "label": "File Upload via useRef (Custom Button Trigger)",
+      "file_type": "rationale",
+      "source_file": "Facehook Project part 2.txt",
+      "source_location": "line 472",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": "rationale: File inputs cannot be controlled with useState for security reasons; useRef gives direct DOM access to trigger the file picker and read selected files. FormData is required for multipart/form-data when sending files alongside text."
+    },
+    {
+      "id": "concept_like_reducer",
+      "label": "Like Feature via POST_LIKED Reducer Action",
+      "file_type": "rationale",
+      "source_file": "Facehook Project part 2.txt",
+      "source_location": "line 619",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": "rationale: Local useState for likes causes sync issues when a post appears in multiple places. Using a shared reducer (POST_LIKED) ensures all components rendering the same post reflect the same like state. PATCH request is used because only partial data changes."
+    },
+    {
+      "id": "concept_comment_enter_key",
+      "label": "Comment Submit via Enter Key (onKeyDown)",
+      "file_type": "rationale",
+      "source_file": "Facehook Project part 2.txt",
+      "source_location": "line 700",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": "rationale: When no submit button is present, use onKeyDown with keyCode===13 to submit comment data to the API via PATCH request."
+    },
+    {
+      "id": "concept_post_create_reducer",
+      "label": "Post Creation via Reducer (POST_CREATED action)",
+      "file_type": "rationale",
+      "source_file": "Facehook Project part 2.txt",
+      "source_location": "line 746",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": "rationale: New posts are prepended to the posts array in the reducer ([action.data, ...state.posts]) so newest content appears first without additional sorting."
+    },
+    {
+      "id": "concept_delete_comment",
+      "label": "Delete Comment Feature (POST_COMMENT_DELETED action)",
+      "file_type": "rationale",
+      "source_file": "Facehook Project part 2.txt",
+      "source_location": "line 843",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": "rationale: Only show delete button when comment.author.id === auth.user.id. Dispatch POST_COMMENT_DELETED after successful API DELETE to filter comment from the shared posts state."
+    },
+    {
+      "id": "concept_usedebugvalue",
+      "label": "useDebugValue Performance Optimization",
+      "file_type": "rationale",
+      "source_file": "Facehook Project part 2.txt",
+      "source_location": "line 223",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": "rationale: useDebugValue is purely for React DevTools visibility. The formatter function (second argument) runs lazily — only when DevTools is open — avoiding unnecessary computation on every render."
+    }
+  ],
+  "edges": [
+    {
+      "source": "index_html_entry",
+      "target": "vite_svg_logo",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "index.html",
+      "source_location": "line 5",
+      "weight": 1.0
+    },
+    {
+      "source": "concept_private_route",
+      "target": "icon_logout",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "Facehook Project part 2.txt",
+      "source_location": "line 77",
+      "weight": 1.0
+    },
+    {
+      "source": "concept_private_route",
+      "target": "concept_auth_context",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "Facehook Project part 2.txt",
+      "source_location": "line 15",
+      "weight": 1.0
+    },
+    {
+      "source": "concept_axios_interceptor",
+      "target": "concept_auth_context",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "Facehook Project part 2.txt",
+      "source_location": "line 283",
+      "weight": 1.0
+    },
+    {
+      "source": "concept_token_storage",
+      "target": "concept_auth_context",
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "Facehook Project part 2.txt",
+      "source_location": "line 105",
+      "weight": 1.0
+    },
+    {
+      "source": "concept_lazy_initializer",
+      "target": "concept_auth_context",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "Facehook Project part 2.txt",
+      "source_location": "line 360",
+      "weight": 1.0
+    },
+    {
+      "source": "concept_profile_state_pattern",
+      "target": "concept_auth_context",
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "Facehook Project part 2.txt",
+      "source_location": "line 379",
+      "weight": 1.0
+    },
+    {
+      "source": "concept_file_upload_useref",
+      "target": "icon_addphoto",
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "Facehook Project part 2.txt",
+      "source_location": "line 472",
+      "weight": 1.0
+    },
+    {
+      "source": "concept_file_upload_useref",
+      "target": "icon_camera",
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "Facehook Project part 2.txt",
+      "source_location": "line 472",
+      "weight": 1.0
+    },
+    {
+      "source": "concept_file_upload_useref",
+      "target": "icon_edit",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "Facehook Project part 2.txt",
+      "source_location": "line 479",
+      "weight": 1.0
+    },
+    {
+      "source": "concept_like_reducer",
+      "target": "icon_like",
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "Facehook Project part 2.txt",
+      "source_location": "line 619",
+      "weight": 1.0
+    },
+    {
+      "source": "concept_like_reducer",
+      "target": "icon_like_fill",
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "Facehook Project part 2.txt",
+      "source_location": "line 619",
+      "weight": 1.0
+    },
+    {
+      "source": "concept_comment_enter_key",
+      "target": "icon_comment",
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "Facehook Project part 2.txt",
+      "source_location": "line 700",
+      "weight": 1.0
+    },
+    {
+      "source": "concept_delete_comment",
+      "target": "icon_delete",
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "Facehook Project part 2.txt",
+      "source_location": "line 843",
+      "weight": 1.0
+    },
+    {
+      "source": "concept_post_create_reducer",
+      "target": "icon_addphoto",
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.75,
+      "source_file": "Facehook Project part 2.txt",
+      "source_location": "line 746",
+      "weight": 1.0
+    },
+    {
+      "source": "icon_like",
+      "target": "icon_like_fill",
+      "relation": "semantically_similar_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "src/assets/icons/like.svg",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "icon_delete",
+      "target": "icon_edit",
+      "relation": "semantically_similar_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.75,
+      "source_file": "src/assets/icons/delete.svg",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "icon_camera",
+      "target": "icon_addphoto",
+      "relation": "semantically_similar_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "src/assets/icons/camera.svg",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "concept_axios_interceptor",
+      "target": "concept_token_storage",
+      "relation": "implements",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "Facehook Project part 2.txt",
+      "source_location": "line 262",
+      "weight": 1.0
+    },
+    {
+      "source": "facehook_project_notes_part2",
+      "target": "concept_private_route",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "Facehook Project part 2.txt",
+      "source_location": "line 5",
+      "weight": 1.0
+    },
+    {
+      "source": "facehook_project_notes_part2",
+      "target": "concept_token_storage",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "Facehook Project part 2.txt",
+      "source_location": "line 105",
+      "weight": 1.0
+    },
+    {
+      "source": "facehook_project_notes_part2",
+      "target": "concept_axios_interceptor",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "Facehook Project part 2.txt",
+      "source_location": "line 262",
+      "weight": 1.0
+    },
+    {
+      "source": "facehook_project_notes_part2",
+      "target": "concept_profile_state_pattern",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "Facehook Project part 2.txt",
+      "source_location": "line 375",
+      "weight": 1.0
+    },
+    {
+      "source": "facehook_project_notes_part2",
+      "target": "concept_like_reducer",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "Facehook Project part 2.txt",
+      "source_location": "line 619",
+      "weight": 1.0
+    },
+    {
+      "source": "facehook_project_notes_part2",
+      "target": "concept_comment_enter_key",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "Facehook Project part 2.txt",
+      "source_location": "line 700",
+      "weight": 1.0
+    },
+    {
+      "source": "facehook_project_notes_part2",
+      "target": "concept_post_create_reducer",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "Facehook Project part 2.txt",
+      "source_location": "line 746",
+      "weight": 1.0
+    },
+    {
+      "source": "facehook_project_notes_part2",
+      "target": "concept_delete_comment",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "Facehook Project part 2.txt",
+      "source_location": "line 843",
+      "weight": 1.0
+    },
+    {
+      "source": "logo_svg",
+      "target": "index_html_entry",
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.75,
+      "source_file": "src/assets/images/logo.svg",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "readme_vite_react_ts",
+      "target": "vite_svg_logo",
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.75,
+      "source_file": "README.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "readme_vite_react_ts",
+      "target": "react_svg_logo",
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.75,
+      "source_file": "README.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "concept_post_create_reducer",
+      "target": "concept_like_reducer",
+      "relation": "semantically_similar_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "Facehook Project part 2.txt",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "concept_delete_comment",
+      "target": "concept_like_reducer",
+      "relation": "semantically_similar_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.75,
+      "source_file": "Facehook Project part 2.txt",
+      "source_location": null,
+      "weight": 1.0
+    }
+  ],
+  "hyperedges": [
+    {
+      "id": "post_interaction_icons",
+      "label": "Post Social Interaction Icons (Like, Comment, Share)",
+      "nodes": ["icon_like", "icon_like_fill", "icon_comment", "icon_share"],
+      "relation": "form",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "src/assets/icons"
+    },
+    {
+      "id": "post_crud_reducers",
+      "label": "Post CRUD Operations via Reducer Actions",
+      "nodes": ["concept_post_create_reducer", "concept_like_reducer", "concept_delete_comment"],
+      "relation": "implement",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "Facehook Project part 2.txt"
+    },
+    {
+      "id": "auth_token_flow",
+      "label": "Authentication Token Management Flow",
+      "nodes": ["concept_auth_context", "concept_token_storage", "concept_axios_interceptor"],
+      "relation": "participate_in",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "Facehook Project part 2.txt"
+    }
+  ],
+  "input_tokens": 0,
+  "output_tokens": 0
+}

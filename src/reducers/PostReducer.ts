@@ -41,15 +41,23 @@ const postReducer = (state, action) => {
       return {
         ...state,
         loading: false,
-        posts: state.posts.filter((item) => item.id !== action.data)
+        posts: state.posts.filter((item) => item.id !== action.data),
       };
     }
 
     case actions.post.POST_COMMENT_DELETED: {
       return {
         ...state,
-        loading: false,
-        posts: [...state.posts, ]
+        posts: state.posts.map((post) =>
+          post.id === action.postId
+            ? {
+                ...post,
+                comments: post.comments.filter(
+                  (comment) => comment.id !== action.commentId,
+                ),
+              }
+            : post,
+        ),
       };
     }
 
