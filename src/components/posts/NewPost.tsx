@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useAuth } from "../../hooks/useAuth";
+import { usePost } from "../../hooks/usePost";
 import { useProfile } from "../../hooks/useProfile";
 import { CreatePost } from "./CreatePost";
 
@@ -8,10 +9,17 @@ export const NewPost = () => {
   const { state } = useProfile();
   const [showCreatePost, setShowCreatePost] = useState(false);
   const user = state?.user ?? auth?.user;
+  const { editPost, setEditPost } = usePost();
   return (
     <>
-      {showCreatePost ? (
-        <CreatePost onClose={() => setShowCreatePost(false)}/>
+      {showCreatePost || editPost ? (
+        <CreatePost
+          onClose={() => {
+            setShowCreatePost(false);
+            setEditPost(null);
+          }}
+          editPost={editPost}
+        />
       ) : (
         <div className="card">
           <div className="flex-center mb-3 gap-2 lg:gap-4">

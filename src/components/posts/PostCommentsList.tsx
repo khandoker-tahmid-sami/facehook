@@ -9,7 +9,7 @@ import { usePost } from "../../hooks/usePost";
 
 export const PostCommentsList = ({ post, postComments, setComments }) => {
   const [activeCommentId, setActiveCommentId] = useState(null);
-  const [editingComnentId, setEditingCommentId] = useState(null);
+  const [editingCommentId, setEditingCommentId] = useState(null);
   const [editCommentText, setEditCommentText] = useState("");
 
   const { dispatch } = usePost();
@@ -82,37 +82,35 @@ export const PostCommentsList = ({ post, postComments, setComments }) => {
                 />
                 <div className="w-full relative">
                   <div className="flex justify-between items-center text-xs lg:text-sm">
-                    <div className="flex gap-1 items-center">
-                      <span>{comment?.author?.name}: </span>
-                      {editingComnentId === comment.id ? (
-                        <div className="flex items-center">
+                    <div className="flex min-w-0 flex-1 gap-1 items-center">
+                      <span className="shrink-0">{comment?.author?.name}: </span>
+                      {editingCommentId === comment.id ? (
+                        <div className="flex min-w-0 flex-1 items-center gap-2">
                           <input
                             type="text"
                             placeholder="update your comment"
-                            className="h-8 w-full rounded-full bg-lighterDark px-4 text-xs focus:outline-none sm:h-[38px]"
+                            className="h-8 min-w-0 flex-1 rounded-full bg-lighterDark px-4 text-xs focus:outline-none sm:h-[38px]"
                             value={editCommentText}
                             onChange={(e) => setEditCommentText(e.target.value)}
+                            onKeyDown={(e) => {
+                              if (e.key === "Enter") {
+                                e.preventDefault();
+                                handleCommentEdit(comment.id);
+                              }
+                            }}
                           />
-                          <div className="flex gap-2">
-                            <button
-                              onClick={() => handleCommentEdit(comment.id)}
-                              className="text-xs text-lwsGreen cursor-pointer"
-                            >
-                              Save
-                            </button>
-                            <button
-                              onClick={() => setEditingCommentId(null)}
-                              className="text-xs text-gray-400 cursor-pointer"
-                            >
-                              Cancel
-                            </button>
-                          </div>
+                          <button
+                            onClick={() => setEditingCommentId(null)}
+                            className="text-xs text-gray-400 cursor-pointer"
+                          >
+                            Cancel
+                          </button>
                         </div>
                       ) : (
                         <span>{comment?.comment}</span>
                       )}
                     </div>
-                    {isMe && (
+                    {isMe && !editingCommentId && (
                       <button
                         onClick={() =>
                           setActiveCommentId(
@@ -124,7 +122,7 @@ export const PostCommentsList = ({ post, postComments, setComments }) => {
                         <img
                           src={ThreeDots}
                           alt="Three dots"
-                          className="w-4 h-4 rotate-90"
+                          className="w-5 h-5 rotate-90"
                         />
                       </button>
                     )}

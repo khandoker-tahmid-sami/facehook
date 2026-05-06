@@ -45,6 +45,16 @@ const postReducer = (state, action) => {
       };
     }
 
+    case actions.post.DATA_EDITED: {
+      return {
+        ...state,
+        loading: false,
+        posts: state.posts.map((post) =>
+          post.id === action.data.id ? action.data : post,
+        ),
+      };
+    }
+
     case actions.post.POST_COMMENT_DELETED: {
       return {
         ...state,

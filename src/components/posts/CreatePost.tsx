@@ -7,7 +7,7 @@ import { useAxios } from "../../hooks/useAxios";
 import { usePost } from "../../hooks/usePost";
 import { useProfile } from "../../hooks/useProfile";
 import { Field } from "../common/Field";
-export const CreatePost = ({ onClose }) => {
+export const CreatePost = ({ onClose, editPost = null }) => {
   const [image, setImage] = useState(null);
   const { auth } = useAuth();
   const { state: profile } = useProfile();
@@ -22,7 +22,11 @@ export const CreatePost = ({ onClose }) => {
     handleSubmit,
     formState: { errors },
     setError,
-  } = useForm();
+  } = useForm({
+    defaultValues: {
+      content: editPost?.content ?? "",
+    },
+  });
 
   const handleImageChange = () => {
     const file = fileUploadRef.current.files[0];
@@ -40,19 +44,35 @@ export const CreatePost = ({ onClose }) => {
     postData.append("content", formData.content);
     if (image) {
       postData.append("image", image);
+    } else if (editPost?.image) {
+      postData.append("image", editPost.image);
     }
 
     try {
-      const response = await api.post(
-        `${import.meta.env.VITE_SERVER_BASE_URL}/posts`,
-        postData,
-      );
+      if (editPost) {
+        const response = await api.patch(
+          `${import.meta.env.VITE_SERVER_BASE_URL}/posts/${editPost?.id}`,
+          postData,
+        );
 
-      if (response.status === 200) {
-        dispatch({ type: actions.post.POST_CREATED, data: response.data });
+        console.log(response);
+        if (response.status === 200) {
+          dispatch({ type: actions.post.DATA_EDITED, data: response.data });
+          onClose();
+        }
+      } else {
+        const response = await api.post(
+          `${import.meta.env.VITE_SERVER_BASE_URL}/posts`,
+          postData,
+        );
 
-        //close this UI
-        onClose();
+        console.log(response);
+        if (response.status === 200) {
+          dispatch({ type: actions.post.POST_CREATED, data: response.data });
+
+          //close this UI
+          onClose();
+        }
       }
     } catch (error) {
       console.error(error);
@@ -63,7 +83,7 @@ export const CreatePost = ({ onClose }) => {
     //  <!-- Create Post  -->
     <div className="card relative">
       <h6 className="mb-3 text-center text-lg font-bold lg:text-xl">
-        Create Post
+        {editPost ? "Edit Post" : "Create Post"}
       </h6>
 
       <form onSubmit={handleSubmit(handlePostSubmit)}>
@@ -107,6 +127,15 @@ export const CreatePost = ({ onClose }) => {
             className="mb-3 w-full rounded-lg"
           />
         )}
+
+        {!image && editPost?.image && (
+          <img
+            src={`${import.meta.env.VITE_SERVER_BASE_URL}/${editPost?.image}`}
+            alt="current"
+            className="mb-3 w-full rounded-lg"
+          />
+        )}
+
         {/* <!-- Post Text Input --> */}
 
         <Field label={""} error={errors.content}>
@@ -126,7 +155,7 @@ export const CreatePost = ({ onClose }) => {
             className="auth-input bg-lwsGreen font-bold text-deepDark transition-all hover:opacity-90 cursor-pointer"
             type="submit"
           >
-            Post
+            {editPost ? "Update" : "Post"}
           </button>
         </div>
       </form>
