@@ -48,6 +48,15 @@ const profileReducer = (state, action) => {
         },
       };
     }
+    case actions.profile.POST_EDITED: {
+      return {
+        ...state,
+        loading: false,
+        posts: state.posts.map((post) =>
+          post.id === action.data.id ? action.data : post,
+        ),
+      };
+    }
     default: {
       return state;
     }

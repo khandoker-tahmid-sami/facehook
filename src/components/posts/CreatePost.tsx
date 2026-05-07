@@ -10,7 +10,7 @@ import { Field } from "../common/Field";
 export const CreatePost = ({ onClose, editPost = null }) => {
   const [image, setImage] = useState(null);
   const { auth } = useAuth();
-  const { state: profile } = useProfile();
+  const { state: profile, dispatch: profileDispatch } = useProfile();
   const { dispatch } = usePost();
   const { api } = useAxios();
   const fileUploadRef = useRef();
@@ -56,8 +56,14 @@ export const CreatePost = ({ onClose, editPost = null }) => {
         );
 
         console.log(response);
+
+        console.log(response);
         if (response.status === 200) {
-          dispatch({ type: actions.post.DATA_EDITED, data: response.data });
+          dispatch({ type: actions.post.DATA_EDITED, data: response.data.post });
+          profileDispatch({
+            type: actions.profile.POST_EDITED,
+            data: response.data.post,
+          });
           onClose();
         }
       } else {
