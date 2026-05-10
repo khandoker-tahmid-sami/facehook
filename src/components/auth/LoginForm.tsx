@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useForm, type SubmitHandler } from "react-hook-form";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../../hooks/useAuth";
 import { Field } from "../common/Field";
 
@@ -86,7 +86,16 @@ export const LoginForm = () => {
           className={`auth-input ${errors.password ? "border-red-500" : "border-gray-200"} `}
         />
       </Field>
+
       <p className="pb-2 text-red-500">{errors?.root?.random?.message}</p>
+      <div className="flex justify-end mb-2">
+        <Link
+          className="text-xs text-gray-600/95 transition-all hover:text-lwsGreen hover:underline lg:text-sm"
+          to="/forgot-password"
+        >
+          Forgot password?
+        </Link>
+      </div>
       {/* <!-- Submit --> */}
       <Field>
         <button

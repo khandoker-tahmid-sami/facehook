@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
 import AuthIllustration from "../assets/images/auth_illustration.png";
-import { LoginForm } from "../components/auth/LoginForm";
+import { ResetPasswordForm } from "../components/auth/ResetPasswordForm";
 
-const LoginPage = () => {
+export const ResetPasswordPage = () => {
   return (
     <main className="flex min-h-screen items-center justify-center bg-deepDark py-8">
       <div className="max-w-[1368px] flex-1">
@@ -28,15 +28,15 @@ const LoginPage = () => {
           {/* <!-- login form --> */}
 
           <div className="card">
-            <LoginForm />
+            <ResetPasswordForm/>
             <div className="py-4 lg:py-6">
               <p className="text-center text-xs text-gray-600/95 lg:text-sm">
-                Don’t have account?{" "}
+                Remember your password?{" "}
                 <Link
                   className="text-white transition-all hover:text-lwsGreen hover:underline"
-                  to="/registration"
+                  to="/login"
                 >
-                  Create New
+                  Back to Login
                 </Link>
               </p>
             </div>
@@ -47,5 +47,3 @@ const LoginPage = () => {
     </main>
   );
 };
-
-export default LoginPage;

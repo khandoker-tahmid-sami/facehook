@@ -16,6 +16,7 @@ export const RegistrationForm = () => {
   const {
     register,
     handleSubmit,
+    watch,
     formState: { errors },
     setError,
   } = useForm<RegistrationFormValues>();
@@ -97,6 +98,21 @@ export const RegistrationForm = () => {
           id="password"
           placeholder="Enter your password..."
           className={`auth-input ${errors.password ? "border-red-500" : "border-gray-200"} `}
+        />
+      </Field>
+
+       <Field label={"Confirm New Password"} error={errors.confirmPassword}>
+        <input
+          {...register("confirmPassword", {
+            required: "Please confirm your new password",
+            validate: (value) =>
+              value === watch("newPassword") || "Passwords do not match",
+          })}
+          type="password"
+          name="confirmPassword"
+          id="confirmPassword"
+          placeholder="Confirm your new password..."
+          className={`auth-input ${errors.confirmPassword ? "border-red-500" : "border-gray-200"} `}
         />
       </Field>
 

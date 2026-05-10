@@ -3,10 +3,12 @@ import { createRoot } from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./index.css";
 import ErrorPage from "./pages/ErrorPage.tsx";
+import ForgotPasswordPage from "./pages/ForgotPasswordPage.tsx";
 import HomePage from "./pages/HomePage.tsx";
 import LoginPage from "./pages/LoginPage.tsx";
 import ProfilePage from "./pages/ProfilePage.tsx";
 import RegistrationPage from "./pages/RegistrationPage.tsx";
+import { ResetPasswordPage } from "./pages/ResetPasswordPage.tsx";
 import AuthProvider from "./providers/AuthProvider.tsx";
 import { PrivateRoutes } from "./routes/PrivateRoutes.tsx";
 
@@ -33,6 +35,14 @@ const router = createBrowserRouter([
   {
     path: "/registration",
     element: <RegistrationPage />,
+  },
+  {
+    path: "/forgot-password",
+    element: <ForgotPasswordPage />,
+  },
+  {
+    path: "/reset-password",
+    element: <ResetPasswordPage />,
   },
 ]);
 
