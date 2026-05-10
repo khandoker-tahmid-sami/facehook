@@ -10,6 +10,10 @@ A social media web app built with React.
 - Comment on posts
 - View and edit your profile
 
+## Screenshots
+
+![Facehook Screenshot](./src/assets/images/facehook.png)
+
 ## Tech Stack
 
 - React 19
@@ -45,9 +49,9 @@ The app runs at `http://localhost:5173` and expects the backend API at `http://l
 
 ## Scripts
 
-| Command | Description |
-|---------|-------------|
-| `npm run dev` | Start development server |
-| `npm run build` | Build for production |
+| Command           | Description              |
+| ----------------- | ------------------------ |
+| `npm run dev`     | Start development server |
+| `npm run build`   | Build for production     |
 | `npm run preview` | Preview production build |
-| `npm run lint` | Run ESLint |
+| `npm run lint`    | Run ESLint               |
